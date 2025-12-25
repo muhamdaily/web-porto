@@ -12,7 +12,7 @@ const AnimatedListProject = () => {
   const projects =
     data
       ?.filter((item: ProjectItem) => item?.is_show)
-      .sort((a: ProjectItem, b: ProjectItem) => b.id - a.id)
+      .sort((a: ProjectItem, b: ProjectItem) => b.id.localeCompare(a.id))
       .map((item: ProjectItem) => ({
         image: item.image.startsWith("/") ? item.image : `/${item.image}`,
         slug: `/projects/${item.slug}`,

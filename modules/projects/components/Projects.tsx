@@ -23,9 +23,9 @@ const Projects = () => {
       if (a.is_featured && !b.is_featured) return -1;
       if (!a.is_featured && b.is_featured) return 1;
 
-      if (a.is_featured && b.is_featured) return a.id - b.id;
+      if (a.is_featured && b.is_featured) return a.id.localeCompare(b.id);
 
-      return b.id - a.id;
+      return b.id.localeCompare(a.id);
     });
 
   if (filteredProjects?.length === 0) {
