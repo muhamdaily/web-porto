@@ -42,7 +42,13 @@ const Achievements = () => {
       (item: AchievementItem) =>
         item?.is_show && (!category || item?.category === category),
     )
-    .sort((a: AchievementItem, b: AchievementItem) => b.id - a.id);
+    .sort((a: AchievementItem, b: AchievementItem) => {
+      // Opsi 1: Sort berdasarkan string ID (descending)
+      return b.id.localeCompare(a.id);
+
+      // Opsi 2: Jika ada field created_at, gunakan itu
+      // return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+    });
 
   return (
     <section className="space-y-4">
