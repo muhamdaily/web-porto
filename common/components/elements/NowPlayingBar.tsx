@@ -16,12 +16,12 @@ const NowPlayingBar = () => {
     const [isShowPlayingInfo, setShowPlayingInfo] = useState(false);
 
     const { data: playingData } = useSWR<NowPlayingProps>(
-        '/api/now-playing',
+        '/api/spotify/now-playing',
         fetcher,
     );
 
     const { data: devicesData = [] } = useSWR<DeviceProps[]>(
-        '/api/available-devices',
+        '/api/spotify/available-devices',
         fetcher,
     );
 
@@ -34,8 +34,8 @@ const NowPlayingBar = () => {
     if (!playingData?.songUrl) return null;
 
     return (
-        <div className='fixed bottom-0 z-[99999] hidden w-full lg:block'>
-            <div className='flex justify-between bg-green-400 px-4 pb-0.5 pt-[2.5px] text-[14px] text-neutral-800 dark:bg-green-500 dark:text-neutral-900'>
+        <div className='fixed bottom-0 left-0 right-0 z-[99999] hidden lg:block'>
+            <div className='flex justify-between items-center bg-green-400 px-4 pb-0.5 pt-[2.5px] text-[14px] text-neutral-800 dark:bg-green-500 dark:text-neutral-900'>
                 {playingData?.songUrl ? (
                     <Popover className='relative'>
                         <Popover.Button

@@ -11,7 +11,7 @@ import { fetcher } from '@/services/fetcher';
 import AnimatedBars from './AnimatedBars';
 
 const NowPlayingCard = ({ isExpand = false }: { isExpand?: boolean }) => {
-    const { data } = useSWR<NowPlayingProps>('/api/now-playing', fetcher);
+    const { data } = useSWR<NowPlayingProps>('/api/spotify/now-playing', fetcher);
 
     const [expand, setExpand] = useState(isExpand);
 
@@ -32,22 +32,32 @@ const NowPlayingCard = ({ isExpand = false }: { isExpand?: boolean }) => {
     if (!data?.songUrl) return null;
 
     return (
-        <div
-            className={clsx(
-                'z-2 fixed bottom-0 w-full p-3',
-                !expand && 'flex justify-end',
-            )}
-        >
-            {!expand ? (
+        <>
+            {expand && (
                 <div
-                    className='m-2 cursor-pointer rounded-full bg-neutral-950 transition-all duration-100'
+                    className="fixed inset-0 z-10 bg-transparent"
                     onClick={handleMusicToggle}
-                >
-                    <SpotifyIcon size={44} className='animate-pulse text-green-500' />
-                </div>
-            ) : (
-                <div className='mt-5 flex items-center justify-between rounded-md bg-green-400 px-3 py-2  text-neutral-800 dark:bg-green-500 dark:text-neutral-900 '>
-                    <div className='flex items-center gap-3'>
+                />
+            )}
+            <div
+                className={clsx(
+                    'fixed',
+                    expand ? 'bottom-0 left-0 right-0 p-3 z-10' : 'bottom-6 left-6 z-10',
+                    !expand && 'flex justify-start',
+                )}
+            >
+                {!expand ? (
+                    <div
+                        className='cursor-pointer rounded-full bg-neutral-950 transition-all duration-100'
+                        onClick={handleMusicToggle}
+                    >
+                        <SpotifyIcon size={44} className='animate-pulse text-green-500' />
+                    </div>
+                ) : (
+                    <div
+                        className='flex items-center gap-3 rounded-md bg-green-400 px-3 py-2 text-neutral-800 dark:bg-green-500 dark:text-neutral-900'
+                        onClick={(e) => e.stopPropagation()}
+                    >
                         {data?.albumImageUrl && (
                             <Image
                                 className='rounded-md'
@@ -71,16 +81,9 @@ const NowPlayingCard = ({ isExpand = false }: { isExpand?: boolean }) => {
                             </div>
                         </div>
                     </div>
-                    <div className='flex gap-3 pr-0.5'>
-                        <CloseIcon
-                            size={28}
-                            className='cursor-pointer pt-0.5 text-neutral-900'
-                            onClick={handleMusicToggle}
-                        />
-                    </div>
-                </div>
-            )}
-        </div>
+                )}
+            </div>
+        </>
     );
 };
 
