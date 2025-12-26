@@ -44,7 +44,7 @@ const Achievements = () => {
     )
     .sort(
       (a: AchievementItem, b: AchievementItem) =>
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        new Date(b.issue_date).getTime() - new Date(a.issue_date).getTime()
     );
 
   return (
