@@ -1,7 +1,7 @@
 {
   "HomePage": {
     "intro": "Hi, I'm Muhammad Mauribi",
-    "location": "Based in Lumajang, Indonesia 🇮🇩",
+    "location": "Based in Lumajang, Indonesia",
     "location_type": "Full Stack Developer",
     "resume": "I am a student at Institute of Technology and Science Mandala with expertise in developing interactive websites. I focus on developing efficient, secure, and accessible web applications while committed to delivering the best user experience.",
     "skills": {
@@ -18,7 +18,7 @@
     "description": "A brief introduction to who I am.",
     "resume": {
       "paragraf_1": "Hello! Thanks for visiting my personal website.",
-      "paragraf_2": "I'm Muhammad Mauribi. I've been working in web development for over 10 years, doing both the coding you see on the screen (frontend) and the work that happens behind the scenes (backend). I know how to manage projects using methods like Waterfall and Agile. But what really excites me is creating websites and apps that are easy for everyone to use and look great too!",
+      "paragraf_2": "I'm Muhammad Mauribi. I've been working in web development for over 6 years, doing both the coding you see on the screen (frontend) and the work that happens behind the scenes (backend). I know how to manage projects using methods like Waterfall and Agile. But what really excites me is creating websites and apps that are easy for everyone to use and look great too!",
       "paragraf_3": "I'm passionate about JavaScript and PHP, which are languages used to build websites. I also have experience with various frameworks that make building websites even more efficient, like React, Vue, Node.js, and PHP frameworks such as CodeIgniter and Laravel. I enjoy learning about new web tools and features.",
       "paragraf_4": "Throughout my career, I've led teams to develop software for a wide range of companies, from large corporations to innovative startups.",
       "paragraf_5": "I believe that clear communication is key to any successful project.",

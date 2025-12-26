@@ -17,7 +17,7 @@ const ProfileHeader = ({ expandMenu, imageSize }: ProfileHeaderProps) => {
   return (
     <div
       className={cn(
-        "flex w-full flex-grow items-center gap-4 lg:flex-col lg:gap-0.5",
+        "flex w-full flex-grow items-center gap-2 lg:flex-col lg:gap-0.5",
         expandMenu && "flex-col !items-start",
       )}
     >
@@ -30,15 +30,15 @@ const ProfileHeader = ({ expandMenu, imageSize }: ProfileHeaderProps) => {
         rounded="rounded-full"
       />
 
-      <div className="mt-1 flex items-center gap-2 lg:mt-4">
+      <div className="mt-1 flex items-center gap-1.5 lg:mt-4 lg:gap-2">
         <Link href="/" passHref>
-          <h2 className="flex-grow text-sm font-medium lg:text-base whitespace-nowrap">
+          <h2 className="flex-grow text-xs font-medium lg:text-base whitespace-nowrap">
             Muhammad Mauribi
           </h2>
         </Link>
 
         <Tooltip title="Verified">
-          <VerifiedIcon size={16} className="text-blue-400 flex-shrink-0 lg:w-[18px] lg:h-[18px]" />
+          <VerifiedIcon size={14} className="text-blue-400 flex-shrink-0 lg:w-[18px] lg:h-[18px]" />
         </Tooltip>
       </div>
 
@@ -46,7 +46,7 @@ const ProfileHeader = ({ expandMenu, imageSize }: ProfileHeaderProps) => {
         @muhamdaily
       </div>
 
-      <div className="hidden justify-between gap-6 lg:mt-4 lg:flex">
+      <div className="hidden justify-between gap-2 lg:mt-4 lg:flex lg:gap-6">
         <IntlToggle />
         <ThemeToggle />
       </div>
