@@ -12,7 +12,10 @@ const AchievementFolder = () => {
 
   const filteredAchievements = data
     ?.filter((item: AchievementItem) => item?.is_show)
-    .sort((a: AchievementItem, b: AchievementItem) => b.id.localeCompare(a.id))
+    .sort(
+      (a: AchievementItem, b: AchievementItem) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    )
     .slice(0, 3);
 
   const items =
