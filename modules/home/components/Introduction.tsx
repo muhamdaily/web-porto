@@ -5,7 +5,7 @@ const Introduction = () => {
 
   return (
     <section className="space-y-2 bg-cover bg-no-repeat">
-      <div className="text-3xl font-medium text-neutral-900 dark:text-neutral-50">
+      <div className="text-xl sm:text-2xl lg:text-3xl font-medium text-neutral-900 dark:text-neutral-50">
         <h1>{t("intro")}</h1>
       </div>
 
