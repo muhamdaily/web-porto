@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import type { Metadata } from "next";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 import Layouts from "@/common/components/layouts";
@@ -72,6 +73,7 @@ const RootLayout = async ({
           </NextAuthProvider>
         </NextIntlClientProvider>
         <Analytics />
+        <Toaster position="top-right" />
       </body>
     </html>
   );

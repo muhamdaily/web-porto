@@ -1,10 +1,11 @@
 "use client";
 
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
+import toast from "react-hot-toast";
 
 import ChatAuth from "./ChatAuth";
 import ChatInput from "./ChatInput";
@@ -29,7 +30,7 @@ export const ChatRoom = ({ isWidget = false }: { isWidget?: boolean }) => {
   const notif = useNotif();
 
   const handleClickReply = (name: string) => {
-    if (!session?.user) return notif("Please sign in to reply");
+    if (!session?.user) return toast.error('You must be logged in to reply');
     setIsReply({ is_reply: true, name });
   };
 
@@ -52,19 +53,22 @@ export const ChatRoom = ({ isWidget = false }: { isWidget?: boolean }) => {
     };
     try {
       await axios.post("/api/chat", newMessageData);
-      notif("Successfully to send message");
+      mutate("/api/chat");
+      toast.success('Message has been sent!');
     } catch (error) {
       console.error("Error:", error);
-      notif("Failed to send message");
+      toast.error('Failed to send message');
     }
   };
 
   const handleDeleteMessage = async (id: string) => {
+    setMessages((prevMessages) => prevMessages.filter((msg) => msg.id !== id));
     try {
       await axios.delete(`/api/chat/${id}`);
-      notif("Successfully to delete message");
+      mutate("/api/chat");
+      toast.success('Message has been deleted!');
     } catch (error) {
-      notif("Failed to delete message");
+      toast.error('Failed to delete message');
     }
   };
 

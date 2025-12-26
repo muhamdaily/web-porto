@@ -1,7 +1,7 @@
 export const METADATA = {
   creator: "Muhammad Mauribi",
-  description: "Personal website, portfolio, blog",
-  keyword: "muhamdaily, Muhammad Mauribi",
+  description: "Hello, World! I&#x27;m Muhammad Mauribi. I work as a web developer, creating responsive and dynamic software. With my web development skills, my aim is to assist individuals or groups in making their work easier and more efficient.",
+  keyword: "Muhammad, Mauribi, MuhamDaily, Web Developer, Frontend Developer, Backend Developer, Fullstack Developer, Software Engineer, Programmer, Coding, JavaScript, TypeScript, React, Node.js, Web Development, Responsive Design, Dynamic Software",
   authors: {
     name: "Muhammad Mauribi",
     url: process.env.DOMAIN,
@@ -11,6 +11,6 @@ export const METADATA = {
     siteName: "Muhammad Mauribi",
     locale: "id-ID",
   },
-  exTitle: "| Muhammad Mauribi",
+  exTitle: "— Muhammad Mauribi",
   profile: "/images/muhamdaily.jpg",
 };

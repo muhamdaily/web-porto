@@ -7,10 +7,10 @@ import { METADATA } from "@/common/constants/metadata";
 import ChatRoom from "@/modules/chat";
 
 export const metadata: Metadata = {
-  title: `Contact ${METADATA.exTitle}`,
-  description: `Contact ${METADATA.creator}`,
+  title: `Chat ${METADATA.exTitle}`,
+  description: `Chat with ${METADATA.creator}`,
   alternates: {
-    canonical: `${process.env.DOMAIN}/contact`,
+    canonical: `${process.env.DOMAIN}/chat`,
   },
 };
 
