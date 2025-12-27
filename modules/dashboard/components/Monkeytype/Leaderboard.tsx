@@ -17,7 +17,12 @@ interface ItemProps {
 const Leaderboard = ({ data }: LeaderboardProps) => {
   const t = useTranslations("DashboardPage.monkeytype");
 
-  const datas = Object.values(data.allTimeLbs.time) || [];
+  const timeData = data?.allTimeLbs?.time || {};
+
+  const leaderboardItems = [
+    { seconds: 15, data: timeData["15"] },
+    { seconds: 60, data: timeData["60"] }
+  ];
 
   const Item = ({ label, value, percent }: ItemProps) => {
     return (
@@ -42,14 +47,35 @@ const Leaderboard = ({ data }: LeaderboardProps) => {
       <span className="text-sm text-neutral-600 dark:text-neutral-400">
         {t("title_leaderboard")}
       </span>
-      {datas.map((data, index) => {
-        const percent = (data?.english?.rank / data?.english?.count) * 100;
+      {leaderboardItems.map((item, index) => {
+        const lbData = item.data;
+        const hasData = lbData && Object.keys(lbData).length > 0;
+
+        if (!hasData) {
+          return (
+            <Item
+              key={index}
+              label={item.seconds.toString()}
+              value="-"
+            />
+          );
+        }
+
+        const englishData = lbData.english;
+        const rank = englishData?.rank;
+        const count = englishData?.count;
+
+        const isValidData = rank && count && typeof rank === 'number' && typeof count === 'number';
+
+        const percent = isValidData ? ((rank / count) * 100).toFixed(2) : undefined;
+        const ordinalValue = isValidData ? convertToOrdinal(rank) : "-";
+
         return (
           <Item
             key={index}
-            label={index == 0 ? "15" : "60"}
-            value={convertToOrdinal(data?.english?.rank) || "-"}
-            percent={percent.toFixed(2)}
+            label={item.seconds.toString()}
+            value={ordinalValue}
+            percent={percent}
           />
         );
       })}
