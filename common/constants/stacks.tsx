@@ -34,6 +34,7 @@ import {
   SiJest,
   SiDocker,
   SiKotlin,
+  SiJquery,
 } from "react-icons/si";
 
 export type SkillProps = {
@@ -76,6 +77,12 @@ export const STACKS: SkillProps = {
     icon: <SiJavascript size={iconSize} />,
     background: "bg-yellow-400",
     color: "text-yellow-400",
+    isActive: true,
+  },
+  jQuery: {
+    icon: <SiJquery size={iconSize} />,
+    background: "bg-blue-600",
+    color: "text-blue-600",
     isActive: true,
   },
   TypeScript: {

@@ -10,6 +10,7 @@ export type ProjectItem = {
   content?: string | null;
   is_show: boolean;
   is_featured: boolean;
+  created_at: string;
 };
 
 export type ProjectItemProps = {

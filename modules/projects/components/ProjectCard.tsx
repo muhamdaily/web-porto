@@ -19,7 +19,7 @@ const ProjectCard = ({
   const t = useTranslations("ProjectsPage");
 
   const trimmedContent =
-    description.slice(0, 85) + (description.length > 85 ? "..." : "");
+    description.slice(0, 80) + (description.length > 80 ? "..." : "");
 
   return (
     <Link href={`/projects/${slug}`}>
