@@ -10,7 +10,43 @@
     },
     "bento": {
       "title": "Bagian Unggulan",
-      "sub_title": "Jelajahi semua yang telah saya buat, kontribusikan, dan capai."
+      "sub_title": "Jelajahi semua yang telah saya buat, kontribusikan, dan capai.",
+      "items": {
+        "projects": {
+          "title": "Pameran Proyek",
+          "description": "Kumpulan aplikasi nyata yang dibangun untuk menyelesaikan masalah nyata.",
+          "label": "Proyek"
+        },
+        "about": {
+          "title": "Tentang Saya",
+          "description": "Siapa saya dan apa yang saya lakukan.",
+          "label": "Tentang"
+        },
+        "skills": {
+          "title": "Keahlian & Alat",
+          "description": "Mencakup teknologi mobile, web, AI, dan UI/UX.",
+          "label": "Stack"
+        },
+        "achievements": {
+          "title": "Pencapaian",
+          "description": "Pencapaian dari program, proyek, dan komunitas.",
+          "label": "Pencapaian"
+        },
+        "chat": {
+          "title": "Ruang Obrolan",
+          "description": "Ruang terbuka untuk berbicara dan berkolaborasi.",
+          "label": "Obrolan",
+          "preview": {
+            "question": "Hai, apakah ini website Anda?",
+            "answer": "Ya, saya membuatnya sendiri!"
+          }
+        },
+        "services": {
+          "title": "Layanan",
+          "description": "Solusi end-to-end untuk web, mobile, AI, dan desain.",
+          "label": "Layanan"
+        }
+      }
     }
   },
   "AboutPage": {

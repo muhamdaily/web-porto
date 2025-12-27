@@ -10,7 +10,43 @@
     },
     "bento": {
       "title": "Featured Sections",
-      "sub_title": "Explore everything I’ve crafted, contributed, and accomplished."
+      "sub_title": "Explore everything I’ve crafted, contributed, and accomplished.",
+      "items": {
+        "projects": {
+          "title": "Projects Showcase",
+          "description": "A selection of real apps built to solve real problems.",
+          "label": "Projects"
+        },
+        "about": {
+          "title": "About Me",
+          "description": "Who I am and what I do.",
+          "label": "About"
+        },
+        "skills": {
+          "title": "Skills & Tools",
+          "description": "Covering mobile, web, AI, and UI/UX technologies.",
+          "label": "Stack"
+        },
+        "achievements": {
+          "title": "Achievements",
+          "description": "Milestones from programs, projects, and communities.",
+          "label": "Achievements"
+        },
+        "chat": {
+          "title": "Chat Room",
+          "description": "Open space to talk and collaborate.",
+          "label": "Chat",
+          "preview": {
+            "question": "Hi, is this your website?",
+            "answer": "Yes, I built it myself!"
+          }
+        },
+        "services": {
+          "title": "Services",
+          "description": "End-to-end solutions in web, mobile, AI, and design.",
+          "label": "Services"
+        }
+      }
     }
   },
   "AboutPage": {

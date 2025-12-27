@@ -20,11 +20,11 @@ const TrueFocusService = dynamic(() => import("@/modules/home/components/Bento/T
 
 const size = 22;
 
-export const BENTO: BentoItemProps[] = [
+export const getBentoItems = (t: (key: string) => string): BentoItemProps[] => [
   {
-    title: "Projects Showcase",
-    description: "A selection of real apps built to solve real problems.",
-    label: "Projects",
+    title: t("items.projects.title"),
+    description: t("items.projects.description"),
+    label: t("items.projects.label"),
     icon: <ProjectIcon size={size} />,
     visual: <AnimatedListProject />,
     href: "/projects",
@@ -33,9 +33,9 @@ export const BENTO: BentoItemProps[] = [
     isShow: true,
   },
   {
-    title: "About Me",
-    description: "Who I am and what I do.",
-    label: "About",
+    title: t("items.about.title"),
+    description: t("items.about.description"),
+    label: t("items.about.label"),
     icon: <AboutIcon size={size} />,
     visual: <StackImagesPersonal />,
     href: "/about",
@@ -44,9 +44,9 @@ export const BENTO: BentoItemProps[] = [
     isShow: true,
   },
   {
-    title: "Skills & Tools",
-    description: "Covering mobile, web, AI, and UI/UX technologies.",
-    label: "Stack",
+    title: t("items.skills.title"),
+    description: t("items.skills.description"),
+    label: t("items.skills.label"),
     icon: <DashboardIcon size={size} />,
     visual: <MarqueeIcons />,
     href: "/",
@@ -55,9 +55,9 @@ export const BENTO: BentoItemProps[] = [
     isShow: true,
   },
   {
-    title: "Achievements",
-    description: "Milestones from programs, projects, and communities.",
-    label: "Achievements",
+    title: t("items.achievements.title"),
+    description: t("items.achievements.description"),
+    label: t("items.achievements.label"),
     icon: <AchievementIcon size={size} />,
     visual: <AchievementFolder />,
     href: "/achievements",
@@ -66,9 +66,9 @@ export const BENTO: BentoItemProps[] = [
     isShow: true,
   },
   {
-    title: "Chat Room",
-    description: "Open space to talk and collaborate.",
-    label: "Chat",
+    title: t("items.chat.title"),
+    description: t("items.chat.description"),
+    label: t("items.chat.label"),
     icon: <ChatRoomIcon size={size} />,
     visual: <ChatPreview />,
     href: "/chat",
@@ -77,9 +77,9 @@ export const BENTO: BentoItemProps[] = [
     isShow: true,
   },
   {
-    title: "Services",
-    description: "End-to-end solutions in web, mobile, AI, and design.",
-    label: "Services",
+    title: t("items.services.title"),
+    description: t("items.services.description"),
+    label: t("items.services.label"),
     icon: <ContactIcon size={size} />,
     visual: <TrueFocusService />,
     href: "/",

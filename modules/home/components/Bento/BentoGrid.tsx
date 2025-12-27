@@ -4,12 +4,13 @@ import { useTranslations } from "next-intl";
 
 import SectionHeading from "@/common/components/elements/SectionHeading";
 import SectionSubHeading from "@/common/components/elements/SectionSubHeading";
-import { BENTO } from "@/common/constants/bento";
+import { getBentoItems } from "@/common/constants/bento";
 
 const BentoGrid = () => {
   const t = useTranslations("HomePage.bento");
 
-  const filteredBento = BENTO.filter((item) => item?.isShow);
+  const bentoItems = getBentoItems(t);
+  const filteredBento = bentoItems.filter((item) => item?.isShow);
 
   return (
     <section className="space-y-5">
