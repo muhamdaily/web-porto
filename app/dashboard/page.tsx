@@ -8,9 +8,16 @@ import { METADATA } from "@/common/constants/metadata";
 
 export const metadata: Metadata = {
   title: `Dashboard ${METADATA.exTitle}`,
-  description: `My activity dashboard as software engineer`,
+  description: `View ${METADATA.creator}'s real-time developer activity dashboard. Track coding stats, GitHub contributions, Spotify listening activity, and daily development metrics all in one place.`,
+  keywords: "Developer Dashboard, GitHub Stats, Coding Activity, Developer Metrics, Programming Statistics, Spotify Now Playing",
   alternates: {
     canonical: `${process.env.DOMAIN}/dashboard`,
+  },
+  openGraph: {
+    title: `Dashboard — ${METADATA.creator}`,
+    description: `View ${METADATA.creator}'s real-time developer activity dashboard with coding stats and GitHub contributions.`,
+    url: `${process.env.DOMAIN}/dashboard`,
+    type: "website",
   },
 };
 

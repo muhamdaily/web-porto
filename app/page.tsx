@@ -6,6 +6,7 @@ import { METADATA } from "@/common/constants/metadata";
 
 export const metadata: Metadata = {
   title: `${METADATA.creator} — Personal Website`,
+  description: METADATA.description,
   alternates: {
     canonical: `${process.env.DOMAIN}`,
   },

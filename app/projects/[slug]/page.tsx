@@ -20,16 +20,25 @@ export const generateMetadata = async ({
 
   return {
     title: `${project.title} ${METADATA.exTitle}`,
-    description: project.description,
+    description: project.description || `Detailed overview of ${project.title} - a web development project by ${METADATA.creator}. Learn about the technologies used, challenges solved, and features implemented in this project.`,
+    keywords: `${project.title}, ${project.stacks?.join(", ")}, Web Development Project, Portfolio Case Study`,
     openGraph: {
+      title: `${project.title} — ${METADATA.creator}`,
+      description: project.description,
       images: project.image,
-      url: `${METADATA.openGraph.url}/${project.slug}`,
+      url: `${METADATA.openGraph.url}/projects/${project.slug}`,
       siteName: METADATA.openGraph.siteName,
       locale: METADATA.openGraph.locale,
       type: "article",
       authors: METADATA.creator,
     },
-    keywords: project.title,
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} — ${METADATA.creator}`,
+      description: project.description,
+      images: [project.image],
+      creator: METADATA.twitter.creator,
+    },
     alternates: {
       canonical: `${process.env.DOMAIN}/projects/${params.slug}`,
     },

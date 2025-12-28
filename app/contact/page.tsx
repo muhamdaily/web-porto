@@ -8,9 +8,16 @@ import { METADATA } from "@/common/constants/metadata";
 
 export const metadata: Metadata = {
   title: `Contact ${METADATA.exTitle}`,
-  description: `Contact ${METADATA.creator}`,
+  description: `Get in touch with ${METADATA.creator} for web development projects, freelance opportunities, or collaboration inquiries. Connect via email, social media, or contact form for quick responses.`,
+  keywords: "Contact Developer, Hire Web Developer, Freelance Developer, Web Development Services, Contact Muhammad Mauribi",
   alternates: {
     canonical: `${process.env.DOMAIN}/contact`,
+  },
+  openGraph: {
+    title: `Contact — ${METADATA.creator}`,
+    description: `Get in touch with ${METADATA.creator} for web development projects and collaboration opportunities.`,
+    url: `${process.env.DOMAIN}/contact`,
+    type: "website",
   },
 };
 

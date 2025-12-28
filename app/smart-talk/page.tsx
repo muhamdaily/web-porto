@@ -8,9 +8,16 @@ import { METADATA } from "@/common/constants/metadata";
 
 export const metadata: Metadata = {
   title: `Smart Talk ${METADATA.exTitle}`,
-  description: `Smart Talk Integreted with AI`,
+  description: `Engage in AI-powered conversations with Smart Talk. An intelligent chat interface built by ${METADATA.creator} that demonstrates modern web development capabilities and AI integration.`,
+  keywords: "AI Chat, Smart Talk, Chatbot, AI Integration, Interactive Chat Interface",
   alternates: {
     canonical: `${process.env.DOMAIN}/smart-talk`,
+  },
+  openGraph: {
+    title: `Smart Talk — ${METADATA.creator}`,
+    description: `Engage in AI-powered conversations with Smart Talk, an intelligent chat interface built by ${METADATA.creator}.`,
+    url: `${process.env.DOMAIN}/smart-talk`,
+    type: "website",
   },
 };
 
