@@ -20,6 +20,10 @@ export const metadata: Metadata = {
       ? "http://localhost:3000"
       : process.env.DOMAIN || "",
   ),
+  title: {
+    default: METADATA.title,
+    template: `%s ${METADATA.exTitle}`,
+  },
   description: METADATA.description,
   keywords: METADATA.keyword,
   creator: METADATA.creator,
@@ -28,11 +32,38 @@ export const metadata: Metadata = {
     url: METADATA.openGraph.url,
   },
   openGraph: {
-    images: METADATA.profile,
+    type: "website",
+    locale: METADATA.openGraph.locale,
     url: METADATA.openGraph.url,
     siteName: METADATA.openGraph.siteName,
-    locale: METADATA.openGraph.locale,
-    type: "website",
+    title: METADATA.openGraph.title,
+    description: METADATA.openGraph.description,
+    images: [
+      {
+        url: METADATA.openGraph.image,
+        width: 1200,
+        height: 630,
+        alt: METADATA.creator,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: METADATA.twitter.title,
+    description: METADATA.twitter.description,
+    creator: METADATA.twitter.creator,
+    images: [METADATA.twitter.image],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -46,8 +77,31 @@ const RootLayout = async ({
   const messages = await getMessages();
   const session = await getServerSession();
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Muhammad Mauribi",
+    url: process.env.DOMAIN,
+    jobTitle: "Web Developer",
+    description: METADATA.description,
+    image: `${process.env.DOMAIN}${METADATA.profile}`,
+    sameAs: [
+      "https://github.com/muhamdaily",
+      "https://www.linkedin.com/in/muhammadmauribi"
+    ],
+  };
+
+
   return (
     <html lang={locale} suppressHydrationWarning={true}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+      </head>
       <Script
         defer
         src="https://cloud.umami.is/script.js"

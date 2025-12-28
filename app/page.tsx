@@ -5,7 +5,7 @@ import Home from "@/modules/home";
 import { METADATA } from "@/common/constants/metadata";
 
 export const metadata: Metadata = {
-  title: `${METADATA.creator} | Personal Website`,
+  title: `${METADATA.creator} — Personal Website`,
   alternates: {
     canonical: `${process.env.DOMAIN}`,
   },
