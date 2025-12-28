@@ -12,7 +12,7 @@ export const getCodewarsData = async () => {
   const status = response.status;
   const data = response.data;
 
-  if (status > 400) {
+  if (status >= 400) {
     return { status, data: {} };
   }
 

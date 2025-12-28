@@ -1,7 +1,7 @@
 export const CODEWARS_ACCOUNT = {
   user_id: process.env.CODEWARS_USER_ID,
-  username: "Muhammad Mauribi",
+  username: "MuhamDaily",
   endpoint: "/api/codewars",
-  codewars_url: "https://www.codewars.com/",
-  is_active: false,
+  codewars_url: "https://www.codewars.com/users/muhamdaily",
+  is_active: true,
 };

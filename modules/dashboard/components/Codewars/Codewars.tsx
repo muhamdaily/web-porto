@@ -20,7 +20,7 @@ interface CodewarsProps {
 
 const Codewars = ({ endpoint }: CodewarsProps) => {
   const { data, isLoading, error } = useSWR(endpoint, fetcher);
-  const { codewars_url, is_active } = CODEWARS_ACCOUNT;
+  const { codewars_url, username, is_active } = CODEWARS_ACCOUNT;
 
   const t = useTranslations("DashboardPage");
 
@@ -43,7 +43,7 @@ const Codewars = ({ endpoint }: CodewarsProps) => {
           target="_blank"
           className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-neutral-400"
         >
-          Codewars
+          {username}
         </Link>
       </SectionSubHeading>
 
