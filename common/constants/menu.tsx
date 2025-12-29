@@ -8,7 +8,6 @@ import {
 import { PiChatTeardropDotsBold as ChatRoomIcon } from "react-icons/pi";
 import { PiCertificate as AchievementIcon } from "react-icons/pi";
 import { VscHubot as SmartChatIcon } from "react-icons/vsc";
-import { HiOutlineNewspaper as BlogIcon } from "react-icons/hi";
 
 import { MenuItemProps } from "../types/menu";
 
@@ -46,14 +45,6 @@ export const MENU_ITEMS: MenuItemProps[] = [
     isShow: true,
     isExternal: false,
     eventName: "Pages: Projects",
-  },
-  {
-    title: "Blog",
-    href: "/blog",
-    icon: <BlogIcon size={iconSize} />,
-    isShow: true,
-    isExternal: false,
-    eventName: "Pages: Blog",
   },
   {
     title: "Dashboard",
