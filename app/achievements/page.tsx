@@ -7,7 +7,7 @@ import Achievements from "@/modules/achievements";
 import { METADATA } from "@/common/constants/metadata";
 
 export const metadata: Metadata = {
-  title: `Achievements ${METADATA.exTitle}`,
+  title: `Achievements`,
   description: `Explore the certifications, awards, and professional achievements of ${METADATA.creator}. View credentials that demonstrate expertise in web development, programming, and software engineering.`,
   keywords: "Certifications, Achievements, Awards, Professional Development, Web Developer Credentials, Programming Certificates",
   alternates: {

@@ -7,7 +7,7 @@ import { METADATA } from "@/common/constants/metadata";
 import ChatRoom from "@/modules/chat";
 
 export const metadata: Metadata = {
-  title: `Chat ${METADATA.exTitle}`,
+  title: `Chat`,
   description: `Start a conversation with ${METADATA.creator}! Share your ideas, ask questions about web development, or discuss potential collaboration opportunities through this interactive chat interface.`,
   keywords: "Chat, Contact Developer, Ask Questions, Web Development Discussion, Developer Chat",
   alternates: {

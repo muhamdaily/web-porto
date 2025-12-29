@@ -19,7 +19,7 @@ export const generateMetadata = async ({
   const project = await getProjectDetail(params?.slug);
 
   return {
-    title: `${project.title} ${METADATA.exTitle}`,
+    title: `${project.title}`,
     description: project.description || `Detailed overview of ${project.title} - a web development project by ${METADATA.creator}. Learn about the technologies used, challenges solved, and features implemented in this project.`,
     keywords: `${project.title}, ${project.stacks?.join(", ")}, Web Development Project, Portfolio Case Study`,
     openGraph: {

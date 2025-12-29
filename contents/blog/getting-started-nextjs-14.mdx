@@ -1,0 +1,288 @@
+## Introduction
+
+Next.js 14 represents a significant leap forward in modern web development. Built on top of React, it provides developers with a powerful framework for creating fast, scalable, and SEO-friendly applications. In this comprehensive guide, we'll explore the fundamentals of Next.js 14 and learn how to leverage React Server Components to build cutting-edge web applications.
+
+## What is Next.js?
+
+Next.js is a React framework that enables you to build full-stack web applications with powerful features like:
+
+- **Server-Side Rendering (SSR)** - Render pages on the server for better performance and SEO
+- **Static Site Generation (SSG)** - Pre-render pages at build time
+- **App Router** - File-system based routing with layouts and nested routes
+- **React Server Components** - New rendering paradigm for better performance
+- **API Routes** - Built-in API endpoints without needing a separate backend
+- **Image Optimization** - Automatic image optimization and lazy loading
+- **TypeScript Support** - First-class TypeScript integration
+
+## What's New in Next.js 14?
+
+Next.js 14 brings several exciting improvements:
+
+### 1. **Turbopack (Beta)**
+The new Rust-based bundler that's 700x faster than Webpack for local development.
+
+### 2. **Server Actions (Stable)**
+Mutate data directly from React components without building API routes.
+
+```typescript
+// app/actions.ts
+'use server'
+
+export async function createPost(formData: FormData) {
+  const title = formData.get('title')
+  const content = formData.get('content')
+  
+  // Save to database
+  await db.posts.create({ title, content })
+}
+```
+
+### 3. **Partial Prerendering (Preview)**
+Combine static and dynamic content in a single route for optimal performance.
+
+### 4. **Improved Error Handling**
+Better error messages and debugging experience during development.
+
+## Getting Started
+
+### Prerequisites
+
+Before you begin, make sure you have:
+- Node.js 18.17 or later installed
+- Basic knowledge of React
+- A code editor (VS Code recommended)
+
+### Installation
+
+Create a new Next.js 14 project using the following command:
+
+```bash
+npx create-next-app@latest my-nextjs-app
+```
+
+You'll be prompted with several options:
+
+```
+✔ Would you like to use TypeScript? Yes
+✔ Would you like to use ESLint? Yes
+✔ Would you like to use Tailwind CSS? Yes
+✔ Would you like to use `src/` directory? No
+✔ Would you like to use App Router? Yes
+✔ Would you like to customize the default import alias? No
+```
+
+### Project Structure
+
+After installation, your project structure will look like this:
+
+```
+my-nextjs-app/
+├── app/
+│   ├── layout.tsx       # Root layout
+│   ├── page.tsx         # Home page
+│   └── globals.css      # Global styles
+├── public/              # Static assets
+├── node_modules/
+├── next.config.js       # Next.js configuration
+├── package.json
+├── tsconfig.json        # TypeScript config
+└── tailwind.config.ts   # Tailwind config
+```
+
+## Understanding React Server Components
+
+React Server Components (RSC) are a game-changer in Next.js 14. They allow you to render components on the server, reducing JavaScript bundle size and improving performance.
+
+### Server Components (Default)
+
+By default, all components in the `app` directory are Server Components:
+
+```typescript
+// app/posts/page.tsx
+async function getPosts() {
+  const res = await fetch('https://api.example.com/posts')
+  return res.json()
+}
+
+export default async function PostsPage() {
+  const posts = await getPosts()
+  
+  return (
+    <div>
+      <h1>Blog Posts</h1>
+      {posts.map(post => (
+        <article key={post.id}>
+          <h2>{post.title}</h2>
+          <p>{post.excerpt}</p>
+        </article>
+      ))}
+    </div>
+  )
+}
+```
+
+### Client Components
+
+When you need interactivity, use Client Components with the `'use client'` directive:
+
+```typescript
+'use client'
+
+import { useState } from 'react'
+
+export default function Counter() {
+  const [count, setCount] = useState(0)
+  
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Count: {count}
+    </button>
+  )
+}
+```
+
+## File-Based Routing
+
+Next.js 14 uses the App Router with a file-system based routing:
+
+```
+app/
+├── page.tsx                    # / route
+├── about/
+│   └── page.tsx               # /about route
+├── blog/
+│   ├── page.tsx               # /blog route
+│   └── [slug]/
+│       └── page.tsx           # /blog/[slug] dynamic route
+└── dashboard/
+    ├── layout.tsx             # Dashboard layout
+    ├── page.tsx               # /dashboard route
+    └── settings/
+        └── page.tsx           # /dashboard/settings route
+```
+
+### Creating Your First Page
+
+Create a new page at `app/about/page.tsx`:
+
+```typescript
+export default function AboutPage() {
+  return (
+    <main className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold mb-4">About Us</h1>
+      <p className="text-gray-600">
+        Welcome to our Next.js 14 application!
+      </p>
+    </main>
+  )
+}
+```
+
+## Layouts and Templates
+
+Layouts allow you to share UI between multiple pages:
+
+```typescript
+// app/dashboard/layout.tsx
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <div className="flex min-h-screen">
+      <aside className="w-64 bg-gray-100 p-4">
+        <nav>
+          <a href="/dashboard">Dashboard</a>
+          <a href="/dashboard/settings">Settings</a>
+        </nav>
+      </aside>
+      <main className="flex-1 p-8">
+        {children}
+      </main>
+    </div>
+  )
+}
+```
+
+## Data Fetching
+
+Next.js 14 simplifies data fetching with async/await directly in components:
+
+```typescript
+// Server Component - Fetch at build time
+async function getProduct(id: string) {
+  const res = await fetch(`https://api.example.com/products/${id}`, {
+    cache: 'force-cache' // Static generation
+  })
+  return res.json()
+}
+
+// Revalidate every hour
+async function getPosts() {
+  const res = await fetch('https://api.example.com/posts', {
+    next: { revalidate: 3600 }
+  })
+  return res.json()
+}
+
+// Always fresh data
+async function getUser() {
+  const res = await fetch('https://api.example.com/user', {
+    cache: 'no-store' // Dynamic rendering
+  })
+  return res.json()
+}
+```
+
+## Running Your Application
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Visit `http://localhost:3000` to see your application.
+
+### Building for Production
+
+Build your application:
+
+```bash
+npm run build
+```
+
+Start the production server:
+
+```bash
+npm start
+```
+
+## Best Practices
+
+1. **Use Server Components by default** - Only add `'use client'` when needed
+2. **Optimize Images** - Use the `<Image>` component for automatic optimization
+3. **Implement Loading States** - Use `loading.tsx` files for better UX
+4. **Handle Errors Gracefully** - Create `error.tsx` files for error boundaries
+5. **Use TypeScript** - Take advantage of type safety
+6. **Leverage Caching** - Configure fetch caching appropriately
+
+## Next Steps
+
+Now that you understand the basics of Next.js 14, here's what to explore next:
+
+- Learn about **Metadata API** for better SEO
+- Explore **Server Actions** for form handling
+- Implement **Authentication** with NextAuth.js
+- Build **API Routes** for backend functionality
+- Deploy to **Vercel** or other platforms
+- Study **Performance Optimization** techniques
+
+## Conclusion
+
+Next.js 14 with React Server Components represents the future of web development. By combining server-side rendering, static generation, and client-side interactivity, you can build applications that are both performant and feature-rich.
+
+The framework's intuitive file-based routing, powerful data fetching capabilities, and excellent developer experience make it an ideal choice for projects of any size.
+
+Start building your next project with Next.js 14 today and experience the benefits of modern web development!

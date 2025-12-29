@@ -7,7 +7,7 @@ import Projects from "@/modules/projects";
 import { METADATA } from "@/common/constants/metadata";
 
 export const metadata: Metadata = {
-  title: `Projects ${METADATA.exTitle}`,
+  title: `Projects`,
   description: `Explore ${METADATA.creator}'s portfolio of web development projects. From responsive websites to dynamic web applications, see real-world examples of frontend and backend development work using React, Next.js, TypeScript, and more.`,
   keywords: "Portfolio Projects, Web Development Projects, React Projects, Next.js Applications, Frontend Portfolio, Fullstack Projects, JavaScript Projects",
   alternates: {

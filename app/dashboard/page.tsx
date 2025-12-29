@@ -7,7 +7,7 @@ import Dashboard from "@/modules/dashboard/components/Dashboard";
 import { METADATA } from "@/common/constants/metadata";
 
 export const metadata: Metadata = {
-  title: `Dashboard ${METADATA.exTitle}`,
+  title: `Dashboard`,
   description: `View ${METADATA.creator}'s real-time developer activity dashboard. Track coding stats, GitHub contributions, Spotify listening activity, and daily development metrics all in one place.`,
   keywords: "Developer Dashboard, GitHub Stats, Coding Activity, Developer Metrics, Programming Statistics, Spotify Now Playing",
   alternates: {
