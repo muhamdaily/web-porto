@@ -37,7 +37,10 @@ const Blog = () => {
         });
 
     // Get unique categories
-    const categories = ["All", ...new Set(data?.map((item: BlogItem) => item.category) || [])];
+    const categories: string[] = [
+        "All",
+        ...Array.from(new Set(data?.map((item: BlogItem) => item.category) || []))
+    ] as string[];
 
     const totalPages = Math.ceil((filteredBlog?.length || 0) / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
