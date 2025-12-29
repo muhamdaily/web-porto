@@ -6,7 +6,16 @@ const Introduction = () => {
   return (
     <section className="space-y-2 bg-cover bg-no-repeat">
       <div className="text-xl sm:text-2xl lg:text-3xl font-medium text-neutral-900 dark:text-neutral-50">
-        <h1>{t("intro")}</h1>
+        <h1>
+          {t("intro")}{" "}
+          <span
+            className="inline-block animate-wave"
+            style={{ transformOrigin: "70% 70%" }}
+          >
+            👋
+          </span>
+        </h1>
+
       </div>
 
       <div className="space-y-4">

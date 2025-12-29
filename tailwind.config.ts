@@ -61,6 +61,18 @@ const config: Config = {
           "0%": { transform: "translate(0%, 0%)", opacity: "1" },
           "100%": { transform: "translate(100%, 0%)", opacity: "0" },
         },
+        wave: {
+          "0%": { transform: "rotate(0deg)" },
+          "5%": { transform: "rotate(12deg)" },
+          "10%": { transform: "rotate(-6deg)" },
+          "15%": { transform: "rotate(14deg)" },
+          "20%": { transform: "rotate(-4deg)" },
+          "25%": { transform: "rotate(10deg)" },
+          "30%": { transform: "rotate(-2deg)" },
+          "35%": { transform: "rotate(6deg)" },
+          "40%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(0deg)" },
+        },
       },
       animation: {
         shine: "shine 5s linear infinite",
@@ -72,6 +84,7 @@ const config: Config = {
         "star-movement-bottom":
           "star-movement-bottom linear infinite alternate",
         "star-movement-top": "star-movement-top linear infinite alternate",
+        wave: "wave 2.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite",
       },
     },
   },
