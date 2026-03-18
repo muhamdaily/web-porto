@@ -1,0 +1,114 @@
+Kos Kia Tia is a comprehensive web-based management application designed to streamline boarding house (kos kosan) operations at a residential facility. The system manages the entire lifecycle of tenant relationships, from booking and payment verification to billing and contract management with automated notification systems.
+
+---
+
+## The Story Behind Kos Kia Tia
+
+Managing a kos kosan involves complex operations including booking requests, payment verification, tenant billing, and regular communication with residents. Manual processes often lead to payment delays, missed follow-ups, and administrative confusion. Kos Kia Tia was developed to address these challenges by providing a unified digital platform.
+
+The system was built to help kos kosan managers handle multiple tenant bookings simultaneously, track payment statuses in real-time, generate automated reminders for outstanding bills, and maintain comprehensive tenant and financial records. With integrated WhatsApp and email notifications, the system ensures timely communication and reduces administrative overhead.
+
+---
+
+## Key Features
+
+### Booking & Tenant Management
+- Booking request submission with payment proof upload
+- Admin approval/rejection workflow with customizable rejection reasons
+- Automated notification to users on booking status changes
+- Tenant profile management with contact information
+- Room inventory tracking with status indicators (available, booked, occupied, maintenance)
+
+### Financial Management
+- Invoice generation for monthly rent billing
+- Payment proof verification with admin dashboard
+- Automated invoice creation for renewal periods
+- Void invoice management for cancelled bookings
+- Detailed financial reports and transaction history
+
+### Sewa (Rental) Management
+- Active sewa tracking with start and end dates
+- Automatic sewa termination with room status updates
+- Period-based billing system with configurable due dates
+- Next due date calculation for automated reminders
+
+### Automated Notification System
+- **Email Notifications**
+  - Welcome email on successful registration
+  - Booking confirmation with payment instructions
+  - Booking approval/rejection notifications
+  - Payment receipt confirmation
+  - Invoice reminders (1 day before, on due date, 1/3/7 days after)
+  - Sewa termination notifications
+
+- **WhatsApp Integration**
+  - Automated WhatsApp messages for all notification events
+  - Real-time booking status updates
+  - Payment reminders with countdown timers
+  - Overdue payment alerts with urgency indicators
+
+### Invoice & Payment Tracking
+- Invoice payment status tracking (unpaid, pending verification, paid, void)
+- Payment history with proof storage
+- Customizable payment verification periods
+- Automatic follow-up reminders for overdue invoices
+
+### User Management
+- Role-based access control (user, admin, superadmin)
+- User authentication and authorization
+- Notification preference settings (email/WhatsApp opt-in)
+- OTP verification for account security
+
+### Admin Dashboard
+- Overview of pending bookings and payments
+- Financial summaries and revenue reports
+- Active tenant and room status monitoring
+- Invoice and payment management interface
+- User activity logs and system statistics
+
+### Modern & Responsive UI
+- Built with TailwindCSS for modern aesthetics
+- Fully responsive design for desktop, tablet, and mobile
+- Intuitive navigation and user-friendly workflows
+- Real-time status updates and visual indicators
+
+## Technical Highlights
+
+### Architecture
+- **Backend**: Laravel 11 with modular structure
+- **Frontend**: TailwindCSS with Vite build tool
+- **Database**: MySQL with optimized queries
+- **Queue System**: Database-driven job queue for reliable notifications
+- **Scheduling**: Laravel scheduler for automated reminders
+
+### Notification System
+- Multi-channel notifications (Email + WhatsApp)
+- Job-based queue processing for reliability
+- Scheduled reminders triggered at specific dates
+- User preference respecting (opt-in/opt-out)
+- Error handling and retry mechanisms
+
+### Database Management
+- Migrations for easy deployment and updates
+- Relationship modeling for complex data structures
+- Transaction-based operations for data integrity
+- Backup-friendly architecture
+
+### Deployment
+- cPanel-compatible deployment process
+- Production-ready environment configuration
+- Automated build process with npm and composer
+- Cron job integration for queue workers and schedulers
+
+## Real-World Application
+
+Kos Kia Tia demonstrates my expertise in:
+- Building complete end-to-end business management systems
+- Designing automated notification workflows
+- Implementing complex billing and payment systems
+- Creating user-friendly admin dashboards
+- Integrating third-party APIs (WhatsApp, Email)
+- Deploying and maintaining production applications
+- Handling business logic requirements from real clients
+
+This project reflects my ability to develop scalable, reliable systems that address real business challenges while maintaining code quality and user experience standards.
