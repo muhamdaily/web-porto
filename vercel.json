@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+        {
+            "source": "/links",
+            "destination": "https://muhamdaily-links.vercel.app/"
+        },
+        {
+            "source": "/links/(.*)",
+            "destination": "https://muhamdaily-links.vercel.app/$1"
+        }
+    ]
+}
