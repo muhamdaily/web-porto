@@ -14,7 +14,7 @@ const nextConfig = {
   },
   async rewrites() {
     return {
-      beforeFiles: [
+      afterFiles: [
         {
           source: "/links/:path*",
           destination: "https://muhamdaily-links.vercel.app/:path*",
