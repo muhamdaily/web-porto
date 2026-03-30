@@ -16,8 +16,12 @@ const nextConfig = {
     return {
       afterFiles: [
         {
+          source: "/links",
+          destination: "https://muhamdaily-links.vercel.app/links",
+        },
+        {
           source: "/links/:path*",
-          destination: "https://muhamdaily-links.vercel.app/:path*",
+          destination: "https://muhamdaily-links.vercel.app/links/:path*",
         },
       ],
     };
