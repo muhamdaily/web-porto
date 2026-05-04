@@ -91,6 +91,10 @@
     "error": "An error occurred on the server.",
     "no_data": "No data available."
   },
+  "ChangelogPage": {
+    "title": "Changelog",
+    "description": "Release notes, feature additions, and improvements across this portfolio."
+  },
   "DashboardPage": {
     "title": "Dashboard",
     "description": "My personal dashboard built with Next.js API routes, visualizing development statistics and contributions in real-time.",
@@ -235,6 +239,7 @@
     "Achievements": "Achievements",
     "Projects": "Projects",
     "Dashboard": "Dashboard",
+    "Changelog": "Changelog",
     "Chat Room": "Chat Room",
     "Contact": "Contact",
     "Smart Talk": "Smart Talk"

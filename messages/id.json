@@ -91,6 +91,10 @@
     "error": "Terjadi kesalahan pada server.",
     "no_data": "Data tidak tersedia."
   },
+  "ChangelogPage": {
+    "title": "Changelog",
+    "description": "Catatan semua fitur, peningkatan, dan perbaikan yang telah dirilis pada portofolio ini."
+  },
   "DashboardPage": {
     "title": "Dasbor",
     "description": "Dasbor pribadi saya yang dibangun dengan Next.js API routes, memvisualisasikan statistik pengembangan dan kontribusi secara real-time.",
@@ -235,6 +239,7 @@
     "Achievements": "Pencapaian",
     "Projects": "Proyek",
     "Dashboard": "Dasbor",
+    "Changelog": "Changelog",
     "Chat Room": "Ruang Obrolan",
     "Contact": "Kontak",
     "Smart Talk": "Smart Talk"

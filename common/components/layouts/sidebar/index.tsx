@@ -18,8 +18,10 @@ export default function Sidebar() {
           <div className="hidden lg:block">
             <Menu list={filteredMenu} />
           </div>
-          {/* <Breakline />
-          <Copyright /> */}
+          <div className="hidden lg:block">
+            <Breakline className="mt-6" />
+            <Copyright />
+          </div>
         </div>
       </div>
     </header>

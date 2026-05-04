@@ -3,6 +3,7 @@ import {
   BiUser as AboutIcon,
   BiCollection as ProjectIcon,
   BiCategory as DashboardIcon,
+  BiHistory as ChangelogIcon,
   BiBook as ContactIcon,
 } from "react-icons/bi";
 import { PiChatTeardropDotsBold as ChatRoomIcon } from "react-icons/pi";
@@ -71,10 +72,18 @@ export const MENU_ITEMS: MenuItemProps[] = [
     eventName: "Pages: Contact",
   },
   {
+    title: "Changelog",
+    href: "/changelog",
+    icon: <ChangelogIcon size={iconSize} />,
+    isShow: true,
+    isExternal: false,
+    eventName: "Pages: Changelog",
+  },
+  {
     title: "Smart Talk",
     href: "/smart-talk",
     icon: <SmartChatIcon size={iconSize} />,
-    isShow: true,
+    isShow: false,
     isExternal: false,
     eventName: "Pages: Dashboard",
     isExclusive: true,
