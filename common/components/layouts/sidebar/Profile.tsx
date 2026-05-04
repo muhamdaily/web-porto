@@ -49,8 +49,9 @@ const Profile = () => {
   return (
     <div
       className={clsx(
-        "fixed z-20 w-full bg-neutral-50 p-5 shadow-sm dark:border-b dark:border-neutral-800 dark:bg-neutral-900 lg:relative lg:border-none lg:!bg-transparent lg:p-0 xl:shadow-none",
+        "fixed z-20 flex w-full flex-col bg-neutral-50 p-5 shadow-sm dark:border-b dark:border-neutral-800 dark:bg-neutral-900 lg:relative lg:border-none lg:!bg-transparent lg:p-0 xl:shadow-none",
         isOpen && "pb-0",
+        isMobile && isOpen && "h-screen overflow-hidden",
       )}
     >
       <div className="flex items-center justify-between md:px-2 lg:flex-col lg:space-y-4">
@@ -60,7 +61,7 @@ const Profile = () => {
             className={clsx(
               "mt-1 flex items-center gap-5 lg:hidden",
               isOpen &&
-                "h-[130px] flex-col-reverse !items-end justify-between pb-1",
+              "h-[130px] flex-col-reverse !items-end justify-between pb-1",
             )}
           >
             <div className="flex gap-4">

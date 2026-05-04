@@ -14,6 +14,17 @@ export interface ChangelogEntry {
 
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     {
+        version: "v1.5.1",
+        date: "2026-05-04",
+        title: "Mobile Menu Polish",
+        items: [
+            {
+                type: "fixed",
+                text: "Restored the copyright line in the mobile menu.",
+            },
+        ],
+    },
+    {
         version: "v1.5.0",
         date: "2026-03-31",
         title: "Links Rewrite Fixes",
