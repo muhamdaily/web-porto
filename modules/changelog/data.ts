@@ -20,8 +20,12 @@ export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
         items: [
             {
                 type: "new",
+                text: "Added new navigation for Links."
+            },
+            {
+                type: "new",
                 text: "Added an open-to-work border around the profile picture to indicate availability for new opportunities, only visible on desktop version.",
-            }
+            },
         ],
     },
     {
