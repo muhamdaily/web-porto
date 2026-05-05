@@ -25,7 +25,7 @@ const Changelog = () => {
                 <div key={`${entry.version}-${entryIndex}`}>
                     <div className="flex flex-col gap-4">
                         <div className="flex flex-wrap items-center gap-3">
-                            <span className="rounded-full bg-yellow-400 px-3 py-0.5 text-xs font-bold text-neutral-900">
+                            <span className="rounded-full bg-green-500 px-3 py-0.5 text-xs font-bold text-neutral-900">
                                 {entry.version}
                             </span>
                             <span className="text-xs text-neutral-400 dark:text-neutral-500">

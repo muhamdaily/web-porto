@@ -91,6 +91,10 @@
     "error": "An error occurred on the server.",
     "no_data": "No data available."
   },
+  "UsesPage": {
+    "title": "Uses & Setup",
+    "description": "The gear, tools, and tech I use every day."
+  },
   "ChangelogPage": {
     "title": "Changelog",
     "description": "Release notes, feature additions, and improvements across this portfolio."
@@ -239,6 +243,7 @@
     "Achievements": "Achievements",
     "Projects": "Projects",
     "Dashboard": "Dashboard",
+    "Uses": "Uses",
     "Changelog": "Changelog",
     "Chat Room": "Chat Room",
     "Contact": "Contact",

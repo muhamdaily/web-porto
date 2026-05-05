@@ -14,13 +14,17 @@ export interface ChangelogEntry {
 
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     {
-        version: "v1.5.1",
-        date: "2026-05-04",
-        title: "Mobile Menu Polish",
+        version: "v1.6.0",
+        date: "2026-05-05",
+        title: "Uses & Setup Page",
         items: [
             {
-                type: "fixed",
-                text: "Restored the copyright line in the mobile menu.",
+                type: "new",
+                text: "Added a Uses & Setup page showcasing daily gear, apps, and tech stack.",
+            },
+            {
+                type: "improved",
+                text: "Included quick links to tools and services for faster access.",
             },
         ],
     },

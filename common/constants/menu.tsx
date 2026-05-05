@@ -3,6 +3,7 @@ import {
   BiUser as AboutIcon,
   BiCollection as ProjectIcon,
   BiCategory as DashboardIcon,
+  BiDesktop as UsesIcon,
   BiHistory as ChangelogIcon,
   BiBook as ContactIcon,
 } from "react-icons/bi";
@@ -54,6 +55,14 @@ export const MENU_ITEMS: MenuItemProps[] = [
     isShow: true,
     isExternal: false,
     eventName: "Pages: Dashboard",
+  },
+  {
+    title: "Uses",
+    href: "/uses",
+    icon: <UsesIcon size={iconSize} />,
+    isShow: true,
+    isExternal: false,
+    eventName: "Pages: Uses",
   },
   {
     title: "Chat Room",

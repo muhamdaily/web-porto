@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/contact',
         '/chat',
         '/dashboard',
+        '/uses',
         '/changelog',
         '/smart-talk',
     ].map((route) => ({

@@ -91,6 +91,10 @@
     "error": "Terjadi kesalahan pada server.",
     "no_data": "Data tidak tersedia."
   },
+  "UsesPage": {
+    "title": "Perlengkapan & Setup",
+    "description": "Peralatan, aplikasi, dan teknologi yang saya gunakan setiap hari."
+  },
   "ChangelogPage": {
     "title": "Changelog",
     "description": "Catatan semua fitur, peningkatan, dan perbaikan yang telah dirilis pada portofolio ini."
@@ -239,6 +243,7 @@
     "Achievements": "Pencapaian",
     "Projects": "Proyek",
     "Dashboard": "Dasbor",
+    "Uses": "Perlengkapan",
     "Changelog": "Changelog",
     "Chat Room": "Ruang Obrolan",
     "Contact": "Kontak",
