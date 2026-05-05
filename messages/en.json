@@ -227,6 +227,25 @@
     "title": "Smart Talk",
     "description": "An AI-powered space for natural, insightful conversations and idea exploration."
   },
+  "CommandPalette": {
+    "title": "Command Palette",
+    "placeholder": "Type a command or search...",
+    "no_results": "No results found.",
+    "section_navigation": "Navigation",
+    "section_themes": "Themes",
+    "section_language": "Language",
+    "theme_light": "Switch to Light",
+    "theme_dark": "Switch to Dark",
+    "lang_en": "English",
+    "lang_id": "Bahasa Indonesia",
+    "key_nav": "↑↓",
+    "key_enter": "enter",
+    "key_esc": "esc",
+    "hint_navigate": "navigate",
+    "hint_select": "select",
+    "hint_close": "close",
+    "aria_close": "Close command palette"
+  },
   "Footer": {
     "hire": "Hire me.",
     "copyright_1": "COPYRIGHT © ",

@@ -227,6 +227,25 @@
     "title": "Smart Talk",
     "description": "Ruang berbasis AI untuk percakapan alami, penuh wawasan, dan eksplorasi ide."
   },
+  "CommandPalette": {
+    "title": "Palet Perintah",
+    "placeholder": "Ketik perintah atau cari...",
+    "no_results": "Tidak ada hasil ditemukan.",
+    "section_navigation": "Navigasi",
+    "section_themes": "Tema",
+    "section_language": "Bahasa",
+    "theme_light": "Ganti ke Terang",
+    "theme_dark": "Ganti ke Gelap",
+    "lang_en": "English",
+    "lang_id": "Bahasa Indonesia",
+    "key_nav": "↑↓",
+    "key_enter": "enter",
+    "key_esc": "esc",
+    "hint_navigate": "navigasi",
+    "hint_select": "pilih",
+    "hint_close": "tutup",
+    "aria_close": "Tutup palet perintah"
+  },
   "Footer": {
     "hire": "Rekrut saya.",
     "copyright_1": "HAK CIPTA © ",

@@ -6,6 +6,7 @@ import Copyright from "../../elements/Copyright";
 import Breakline from "../../elements/Breakline";
 import Profile from "./Profile";
 import Menu from "./Menu";
+import CommandPaletteButton from "./CommandPaletteButton";
 
 export default function Sidebar() {
   const filteredMenu = MENU_ITEMS?.filter((item) => item?.isShow);
@@ -20,6 +21,8 @@ export default function Sidebar() {
           </div>
           <div className="hidden lg:block">
             <Breakline className="mt-6" />
+            <CommandPaletteButton />
+            <Breakline />
             <Copyright />
           </div>
         </div>

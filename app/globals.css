@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --cursor-default: url("/cursor.svg") 3 2, auto;
+  --cursor-pointer: url("/cursor.svg") 3 2, pointer;
+}
+
+body {
+  cursor: var(--cursor-default) !important;
+}
+
+a,
+button,
+[role="button"] {
+  cursor: var(--cursor-pointer) !important;
+}
+
 /* body {
   background: 
     /* radial-gradient(ellipse 60% 50% at 50% -30%, rgba(250, 250, 250, 15%) 0%, rgb(8 0 0 / 0%)) no-repeat,

@@ -13,6 +13,7 @@ import Sidebar from "./sidebar";
 
 import NowPlayingBar from '../elements/NowPlayingBar';
 import NowPlayingCard from '../elements/NowPlayingCard';
+import CommandPalette from "../elements/CommandPalette";
 
 const Notif = dynamic(() => import("../elements/Notif"), { ssr: false });
 
@@ -42,6 +43,7 @@ const Layouts = ({ children }: LayoutsProps) => {
         </main>
       </div>
       <Notif />
+      <CommandPalette />
       {isShowChatButton && <ChatButton />}
       {isMobile ? <NowPlayingCard /> : <NowPlayingBar />}
     </div>

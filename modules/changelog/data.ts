@@ -14,6 +14,32 @@ export interface ChangelogEntry {
 
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     {
+        version: "v1.6.2",
+        date: "2026-05-05",
+        title: "Command Palette",
+        items: [
+            {
+                type: "new",
+                text: "Added a Command Palette with Navigation, Themes, and Language shortcuts.",
+            },
+            {
+                type: "new",
+                text: "Added Ctrl + K shortcut and sidebar button to open the palette.",
+            },
+        ],
+    },
+    {
+        version: "v1.6.1",
+        date: "2026-05-05",
+        title: "Custom Cursor",
+        items: [
+            {
+                type: "new",
+                text: "Added a custom cursor across the site for a distinct feel.",
+            },
+        ],
+    },
+    {
         version: "v1.6.0",
         date: "2026-05-05",
         title: "Uses & Setup Page",

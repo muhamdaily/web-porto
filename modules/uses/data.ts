@@ -24,20 +24,20 @@ export const USES_SECTIONS: UsesSection[] = [
     title: "Hardware",
     items: [
       {
-        name: "ASUS Laptop",
-        description: "My daily driver for all development work.",
+        name: "DESKTOP PC",
+        description: "12th Gen Intel(R) Core(TM) i3-12100F, 16 GB RAM, AMD Radeon RX 580 2048SP (8 GB), 1 TB storage.",
       },
       {
-        name: "External Monitor",
-        description: "Extended display for a more productive dual-screen setup.",
+        name: "Lenovo Legion R24e",
+        description: "Primary external monitor for a more productive workflow.",
       },
       {
-        name: "Mechanical Keyboard",
-        description: "Tactile feedback that helps during long coding sessions.",
+        name: "Logitech G502 HERO",
+        description: "Reliable mouse with programmable buttons and good ergonomics.",
       },
       {
-        name: "Wireless Mouse",
-        description: "Ergonomic mouse for comfortable everyday use.",
+        name: "Ajazz AK820",
+        description: "Mechanical keyboard with tactile feedback for long coding sessions.",
       },
     ],
   },
@@ -56,8 +56,9 @@ export const USES_SECTIONS: UsesSection[] = [
         href: "https://developer.android.com/studio",
       },
       {
-        name: "One Dark Pro",
-        description: "My go-to VS Code color theme — easy on the eyes.",
+        name: "GitHub Theme",
+        description: "My go-to VS Code theme for clean, readable code.",
+        href: "https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme",
       },
       {
         name: "JetBrains Mono",
@@ -99,11 +100,6 @@ export const USES_SECTIONS: UsesSection[] = [
         name: "Figma",
         description: "Design tool for UI mockups, prototyping, and component exploration.",
         href: "https://figma.com",
-      },
-      {
-        name: "Notion",
-        description: "All-in-one workspace for notes, planning, and documentation.",
-        href: "https://notion.so",
       },
       {
         name: "Postman",
@@ -156,20 +152,15 @@ export const USES_SECTIONS: UsesSection[] = [
         href: "https://tailwindcss.com",
       },
       {
-        name: "Kotlin",
-        description: "Primary language for native Android app development.",
-        href: "https://kotlinlang.org",
-      },
-      {
         name: "Supabase",
         description: "Open-source backend — PostgreSQL database, auth, and realtime.",
         href: "https://supabase.com",
       },
       {
-        name: "Framer Motion",
-        description: "Production-ready motion library for smooth React animations.",
-        href: "https://framer.com/motion",
-      },
+        name: "Vercel",
+        description: "Cloud platform for static sites and serverless functions with global CDN.",
+        href: "https://vercel.com",
+      }
     ],
   },
 ];
