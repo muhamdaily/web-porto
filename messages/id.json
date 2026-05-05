@@ -91,6 +91,25 @@
     "error": "Terjadi kesalahan pada server.",
     "no_data": "Data tidak tersedia."
   },
+  "ArticlesPage": {
+    "title": "Artikel",
+    "description": "Catatan pribadi, ide, dan cerita dari perjalanan saya.",
+    "search_placeholder": "Cari artikel...",
+    "category_all": "Semua kategori",
+    "filter_placeholder": "Filter kategori...",
+    "category_search_placeholder": "Cari kategori...",
+    "category_empty": "Kategori tidak ditemukan.",
+    "total": "Total: {total}",
+    "loading_more": "Memuat artikel lainnya...",
+    "end_message": "Kamu sudah sampai di akhir.",
+    "error": "Terjadi kesalahan pada server.",
+    "no_data": "Artikel tidak ditemukan.",
+    "views": "dilihat",
+    "featured": "Unggulan",
+    "anonymous": "Anonim",
+    "protected": "Artikel ini diproteksi.",
+    "no_content": "Konten tidak tersedia."
+  },
   "UsesPage": {
     "title": "Perlengkapan & Setup",
     "description": "Peralatan, aplikasi, dan teknologi yang saya gunakan setiap hari."
@@ -261,6 +280,7 @@
     "About": "Tentang",
     "Achievements": "Pencapaian",
     "Projects": "Proyek",
+    "Articles": "Artikel",
     "Dashboard": "Dasbor",
     "Uses": "Perlengkapan",
     "Changelog": "Changelog",

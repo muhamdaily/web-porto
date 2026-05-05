@@ -2,6 +2,7 @@ import {
   BiHomeCircle as HomeIcon,
   BiUser as AboutIcon,
   BiCollection as ProjectIcon,
+  BiBookOpen as ArticlesIcon,
   BiCategory as DashboardIcon,
   BiDesktop as UsesIcon,
   BiHistory as ChangelogIcon,
@@ -48,6 +49,14 @@ export const MENU_ITEMS: MenuItemProps[] = [
     isShow: true,
     isExternal: false,
     eventName: "Pages: Projects",
+  },
+  {
+    title: "Articles",
+    href: "/articles",
+    icon: <ArticlesIcon size={iconSize} />,
+    isShow: true,
+    isExternal: false,
+    eventName: "Pages: Articles",
   },
   {
     title: "Dashboard",

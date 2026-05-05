@@ -91,6 +91,25 @@
     "error": "An error occurred on the server.",
     "no_data": "No data available."
   },
+  "ArticlesPage": {
+    "title": "Articles",
+    "description": "Personal notes, ideas, and stories from my journey.",
+    "search_placeholder": "Search articles...",
+    "category_all": "All categories",
+    "filter_placeholder": "Filter categories...",
+    "category_search_placeholder": "Search categories...",
+    "category_empty": "No category found.",
+    "total": "Total: {total}",
+    "loading_more": "Loading more articles...",
+    "end_message": "You have reached the end.",
+    "error": "An error occurred on the server.",
+    "no_data": "No articles found.",
+    "views": "views",
+    "featured": "Featured",
+    "anonymous": "Anonymous",
+    "protected": "This article is protected.",
+    "no_content": "No content available."
+  },
   "UsesPage": {
     "title": "Uses & Setup",
     "description": "The gear, tools, and tech I use every day."
@@ -261,6 +280,7 @@
     "About": "About",
     "Achievements": "Achievements",
     "Projects": "Projects",
+    "Articles": "Articles",
     "Dashboard": "Dashboard",
     "Uses": "Uses",
     "Changelog": "Changelog",

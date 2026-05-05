@@ -14,6 +14,33 @@ export interface ChangelogEntry {
 
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     {
+        version: "v1.6.4",
+        date: "2026-05-06",
+        title: "Articles Feature",
+        items: [
+            {
+                type: "new",
+                text: "Added an Articles page with search, category filter, featured ordering, and infinite scroll.",
+            },
+            {
+                type: "new",
+                text: "Added article detail pages with markdown rendering, cover images, and metadata such as author, date, and views.",
+            },
+            {
+                type: "new",
+                text: "Connected the feature to Supabase with API routes for listing, detail, categories, and view tracking.",
+            },
+            {
+                type: "improved",
+                text: "Refined article card layout so titles and descriptions stay compact and consistent.",
+            },
+            {
+                type: "fixed",
+                text: "Adjusted remote image handling so external article thumbnails render correctly.",
+            },
+        ],
+    },
+    {
         version: "v1.6.3",
         date: "2026-05-05",
         title: "Profile Border",
