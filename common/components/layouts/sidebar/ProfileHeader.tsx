@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NextImage from "next/image";
 import { MdVerified as VerifiedIcon } from "react-icons/md";
 
 import ThemeToggle from "./ThemeToggle";
@@ -14,6 +15,8 @@ interface ProfileHeaderProps {
 }
 
 const ProfileHeader = ({ expandMenu, imageSize }: ProfileHeaderProps) => {
+  const avatarSize = expandMenu ? 80 : imageSize * 0.9;
+
   return (
     <div
       className={cn(
@@ -21,14 +24,26 @@ const ProfileHeader = ({ expandMenu, imageSize }: ProfileHeaderProps) => {
         expandMenu && "flex-col !items-start",
       )}
     >
-      <Image
-        src={"/images/muhamdaily.jpg"}
-        width={expandMenu ? 80 : imageSize * 0.9}
-        height={expandMenu ? 80 : imageSize * 0.9}
-        alt="Muhammad Mauribi"
-        className="border-2 border-neutral-400 dark:border-neutral-600 lg:hover:scale-105"
-        rounded="rounded-full"
-      />
+      <div
+        className="relative inline-flex items-center justify-center overflow-visible"
+        style={{ width: avatarSize, height: avatarSize }}
+      >
+        <Image
+          src={"/images/muhamdaily.jpg"}
+          width={avatarSize}
+          height={avatarSize}
+          alt="Muhammad Mauribi"
+          className="border-2 border-neutral-400 dark:border-neutral-600 lg:hover:scale-105"
+          rounded="rounded-full"
+        />
+        <NextImage
+          src="/border.png"
+          alt="Open to work"
+          fill
+          sizes="(min-width: 1024px) 120px, 0px"
+          className="pointer-events-none absolute inset-0 hidden scale-[1] lg:block"
+        />
+      </div>
 
       <div className="mt-1 flex items-center gap-1.5 lg:mt-4 lg:gap-2">
         <Link href="/" passHref>

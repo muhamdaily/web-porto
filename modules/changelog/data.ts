@@ -14,6 +14,17 @@ export interface ChangelogEntry {
 
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     {
+        version: "v1.6.3",
+        date: "2026-05-05",
+        title: "Profile Border",
+        items: [
+            {
+                type: "new",
+                text: "Added an open-to-work border around the profile picture to indicate availability for new opportunities, only visible on desktop version.",
+            }
+        ],
+    },
+    {
         version: "v1.6.2",
         date: "2026-05-05",
         title: "Command Palette",
