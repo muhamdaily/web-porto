@@ -14,6 +14,29 @@ export interface ChangelogEntry {
 
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     {
+        version: "v1.6.6",
+        date: "2026-05-06",
+        title: "Sidebar Tooltips & UX",
+        items: [
+            {
+                type: "new",
+                text: "Added hover tooltips for language (EN/ID) and theme (Light/Dark) icons in the sidebar.",
+            },
+            {
+                type: "improved",
+                text: "Tooltips are hidden on mobile and appear on hover/focus for desktop users.",
+            },
+            {
+                type: "fixed",
+                text: "Fixed tooltip centering so labels align above their respective buttons.",
+            },
+            {
+                type: "fixed",
+                text: "Tooltips now hide immediately when the icon is clicked (blur applied).",
+            },
+        ],
+    },
+    {
         version: "v1.6.5",
         date: "2026-05-06",
         title: "Article Sharing",

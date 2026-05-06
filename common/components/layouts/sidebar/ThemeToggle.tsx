@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import {
   BsCloudMoon as DarkModeIcon,
@@ -7,6 +8,7 @@ import {
 
 const ThemeToggle = () => {
   const { resolvedTheme, setTheme } = useTheme();
+  const t = useTranslations("CommandPalette");
 
   const isLightMode = resolvedTheme === "light";
 
@@ -28,38 +30,54 @@ const ThemeToggle = () => {
         />
 
         {/* Light Mode Button */}
-        <motion.button
-          className="relative z-10 flex h-8 w-8 items-center justify-center transition duration-200"
-          onClick={() => setTheme("light")}
-          whileHover={{ scale: 1.15 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <motion.div
-            animate={{
-              color: isLightMode ? "#171717" : "#FFFFFF",
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+        <div className="tooltip-container relative group">
+          <div className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 hidden w-max max-w-xs rounded bg-neutral-500 px-2 py-1 text-xs font-medium text-neutral-100 dark:bg-neutral-100 dark:text-neutral-700 lg:block opacity-0 scale-95 transform transition-all duration-150 ease-in-out group-hover:opacity-100 group-focus-within:opacity-100 group-hover:scale-100 pointer-events-none">
+            {t("theme_light")}
+          </div>
+
+          <motion.button
+            className="relative z-10 flex h-8 w-8 items-center justify-center transition duration-200"
+            onClick={(e) => { setTheme("light"); (e.currentTarget as HTMLElement).blur(); }}
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label={t("theme_light")}
+            tabIndex={0}
           >
-            <LightModeIcon size={17} />
-          </motion.div>
-        </motion.button>
+            <motion.div
+              animate={{
+                color: isLightMode ? "#171717" : "#FFFFFF",
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <LightModeIcon size={17} />
+            </motion.div>
+          </motion.button>
+        </div>
 
         {/* Dark Mode Button */}
-        <motion.button
-          className="relative z-10 flex h-8 w-8 items-center justify-center transition duration-200"
-          onClick={() => setTheme("dark")}
-          whileHover={{ scale: 1.15 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <motion.div
-            animate={{
-              color: !isLightMode ? "#FFFFFF" : "#737373",
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+        <div className="tooltip-container relative group">
+          <div className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 hidden w-max max-w-xs rounded bg-neutral-500 px-2 py-1 text-xs font-medium text-neutral-100 dark:bg-neutral-100 dark:text-neutral-700 lg:block opacity-0 scale-95 transform transition-all duration-150 ease-in-out group-hover:opacity-100 group-focus-within:opacity-100 group-hover:scale-100 pointer-events-none">
+            {t("theme_dark")}
+          </div>
+
+          <motion.button
+            className="relative z-10 flex h-8 w-8 items-center justify-center transition duration-200"
+            onClick={(e) => { setTheme("dark"); (e.currentTarget as HTMLElement).blur(); }}
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label={t("theme_dark")}
+            tabIndex={0}
           >
-            <DarkModeIcon size={17} />
-          </motion.div>
-        </motion.button>
+            <motion.div
+              animate={{
+                color: !isLightMode ? "#FFFFFF" : "#737373",
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <DarkModeIcon size={17} />
+            </motion.div>
+          </motion.button>
+        </div>
       </div>
 
       {/* Mobile */}
