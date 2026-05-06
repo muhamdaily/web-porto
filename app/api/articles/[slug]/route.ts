@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { loadMdxFiles } from "@/common/libs/mdx";
 import { getArticleDataBySlug } from "@/services/articles";
 
 export const GET = async (
@@ -9,8 +10,15 @@ export const GET = async (
     try {
         const { slug } = params;
         const data = await getArticleDataBySlug(slug);
+        const contents = loadMdxFiles("articles");
+        const content = contents.find((item) => item.slug === slug);
 
-        return NextResponse.json(data, { status: 200 });
+        const response = {
+            ...data,
+            content: content?.content ?? null,
+        };
+
+        return NextResponse.json(response, { status: 200 });
     } catch (error) {
         return NextResponse.json(
             { message: "Internal Server Error" },

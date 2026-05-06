@@ -1,33 +1,20 @@
 export type ArticleStatus = "draft" | "published" | "archived";
 
-export type ArticleContent = {
-    rendered: string | null;
-    markdown: string | null;
-    protected: boolean | null;
-};
-
-export type ArticleExcerpt = {
-    rendered: string | null;
-    markdown: string | null;
-    protected: boolean | null;
-};
-
 export type ArticleItem = {
     id: string;
-    date: string;
-    modified?: string | null;
     slug: string;
-    status: ArticleStatus;
     title: string;
-    short_description: string | null;
-    content: ArticleContent | null;
-    excerpt: ArticleExcerpt | null;
+    description: string | null;
+    image: string | null;
     author: string | null;
-    is_featured: boolean;
     categories: string[];
     tags: string[];
-    cover_image: string | null;
+    is_featured: boolean;
+    status: ArticleStatus;
     total_views: number | null;
+    created_at: string;
+    updated_at: string;
+    content?: string | null;
 };
 
 export type ArticleListResponse = {

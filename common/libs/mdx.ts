@@ -8,8 +8,8 @@ import matter from "gray-matter";
 
 import { MdxFileProps } from "../types/mdx";
 
-export const loadMdxFiles = (): MdxFileProps[] => {
-  const dirPath = path.join(process.cwd(), "contents", "projects");
+export const loadMdxFiles = (collection = "projects"): MdxFileProps[] => {
+  const dirPath = path.join(process.cwd(), "contents", collection);
 
   if (!fs.existsSync(dirPath)) {
     return [];

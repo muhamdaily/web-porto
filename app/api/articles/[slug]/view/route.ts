@@ -11,9 +11,8 @@ export const POST = async (
 
         const supabase = createClient();
 
-        // Prefer calling RPC `record_article_view(article_slug)` which is
-        // recommended to be created with SECURITY DEFINER so it can run
-        // with elevated privileges and avoid RLS blocking anonymous inserts.
+        // Prefer calling RPC `record_article_view(article_slug)` which should
+        // increment `articles.total_views` directly on the server side.
         const { data: rpcData, error: rpcError } = await supabase.rpc(
             "record_article_view",
             { article_slug: slug },

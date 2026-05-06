@@ -10,19 +10,19 @@ import { formatDate } from "@/common/helpers";
 const ArticleCard = ({
     title,
     slug,
-    short_description,
-    cover_image,
+    description,
+    image,
     author,
-    date,
+    created_at,
     total_views,
     is_featured,
 }: ArticleItem) => {
     const t = useTranslations("ArticlesPage");
 
-    const trimmedDescription = short_description
-        ? short_description.slice(0, 43) + (short_description.length > 43 ? "..." : "")
+    const trimmedDescription = description
+        ? description.slice(0, 43) + (description.length > 43 ? "..." : "")
         : "";
-    const displayDate = date ? formatDate(date, "dd MMM yyyy") : "";
+    const displayDate = created_at ? formatDate(created_at, "dd MMM yyyy") : "";
     const totalViews = total_views ?? 0;
 
     return (
@@ -43,7 +43,7 @@ const ArticleCard = ({
 
             <div className="relative z-10 pointer-events-none">
                 <Image
-                    src={cover_image || "/images/meta-thumbnail.png"}
+                    src={image || "/images/meta-thumbnail.png"}
                     alt={title}
                     width={450}
                     height={220}

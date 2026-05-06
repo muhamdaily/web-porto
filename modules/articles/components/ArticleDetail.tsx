@@ -14,8 +14,8 @@ const ViewRecorder = dynamic(() => import("./ViewRecorder"), { ssr: false });
 const ArticleDetail = ({
     slug,
     title,
-    cover_image,
-    date,
+    image,
+    created_at,
     author,
     total_views,
     categories,
@@ -23,11 +23,9 @@ const ArticleDetail = ({
     content,
 }: ArticleItem) => {
     const t = useTranslations("ArticlesPage");
-    const displayDate = date ? formatDate(date, "dd MMM yyyy") : "";
+    const displayDate = created_at ? formatDate(created_at, "dd MMM yyyy") : "";
     const totalViews = total_views ?? 0;
-    const markdownContent = content?.protected
-        ? ""
-        : content?.markdown || content?.rendered || "";
+    const markdownContent = content || "";
 
     return (
         <div className="space-y-8">
@@ -49,7 +47,7 @@ const ArticleDetail = ({
                     </span>
                 </div>
 
-                {cover_image ? (
+                {image ? (
                     <div className="relative overflow-hidden rounded-2xl">
                         <div className="absolute right-3 top-3 z-20">
                             <ArticleShareButton
@@ -60,7 +58,7 @@ const ArticleDetail = ({
                             />
                         </div>
                         <Image
-                            src={cover_image}
+                            src={image}
                             alt={title}
                             width={1200}
                             height={520}
@@ -71,9 +69,7 @@ const ArticleDetail = ({
 
             </div>
 
-            {content?.protected ? (
-                <EmptyState message={t("protected")} />
-            ) : markdownContent ? (
+            {markdownContent ? (
                 <div className="mt-5 space-y-6 leading-[1.8] dark:text-neutral-300">
                     <MDXComponent>{markdownContent}</MDXComponent>
                 </div>

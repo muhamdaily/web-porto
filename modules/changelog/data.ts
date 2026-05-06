@@ -14,6 +14,25 @@ export interface ChangelogEntry {
 
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     {
+        version: "v1.6.7",
+        date: "2026-05-07",
+        title: "Articles MDX Migration",
+        items: [
+            {
+                type: "new",
+                text: "Moved article content to local MDX files under contents/articles/{slug}.mdx.",
+            },
+            {
+                type: "improved",
+                text: "Kept the article list powered by Supabase metadata only, while detail pages merge metadata and local MDX content.",
+            },
+            {
+                type: "fixed",
+                text: "Reworked article view counting to use articles.total_views instead of a separate article_views table.",
+            },
+        ],
+    },
+    {
         version: "v1.6.6",
         date: "2026-05-06",
         title: "Sidebar Tooltips & UX",

@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import BackButton from "@/common/components/elements/BackButton";
 import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
+import { loadMdxFiles } from "@/common/libs/mdx";
 import ArticleDetail from "@/modules/articles/components/ArticleDetail";
 import { ArticleItem } from "@/common/types/articles";
 import { METADATA } from "@/common/constants/metadata";
@@ -14,7 +15,15 @@ interface ArticleDetailPageProps {
 
 const getArticleDetail = async (slug: string): Promise<ArticleItem> => {
     const article = await getArticleDataBySlug(slug);
-    return JSON.parse(JSON.stringify(article));
+    const contents = loadMdxFiles("articles");
+    const content = contents.find((item) => item.slug === slug);
+
+    return JSON.parse(
+        JSON.stringify({
+            ...article,
+            content: content?.content ?? null,
+        }),
+    );
 };
 
 export const generateMetadata = async ({
@@ -22,11 +31,9 @@ export const generateMetadata = async ({
 }: ArticleDetailPageProps): Promise<Metadata> => {
     const article = await getArticleDetail(params.slug);
     const description =
-        article.short_description ||
-        article.excerpt?.rendered ||
-        article.excerpt?.markdown ||
+        article.description ||
         METADATA.description;
-    const image = article.cover_image || METADATA.openGraph.image;
+    const image = article.image || METADATA.openGraph.image;
 
     return {
         title: article.title,
@@ -57,8 +64,7 @@ export const generateMetadata = async ({
 
 const ArticleDetailPage = async ({ params }: ArticleDetailPageProps) => {
     const data = await getArticleDetail(params.slug);
-    const pageDescription =
-        data.short_description || data.excerpt?.rendered || data.excerpt?.markdown;
+    const pageDescription = data.description;
 
     return (
         <Container data-aos="fade-up">

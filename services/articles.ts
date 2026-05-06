@@ -22,13 +22,13 @@ export const getArticlesData = async ({
         .from("articles")
         .select("*", { count: "exact" })
         .eq("status", status)
-        // show featured first, then by date desc
+        // show featured first, then by created date desc
         .order("is_featured", { ascending: false })
-        .order("date", { ascending: false });
+        .order("created_at", { ascending: false });
 
     if (query) {
         dbQuery = dbQuery.or(
-            `title.ilike.%${query}%,short_description.ilike.%${query}%`,
+            `title.ilike.%${query}%,description.ilike.%${query}%`,
         );
     }
 
