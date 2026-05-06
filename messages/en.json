@@ -108,7 +108,11 @@
     "featured": "Featured",
     "anonymous": "Anonymous",
     "protected": "This article is protected.",
-    "no_content": "No content available."
+    "no_content": "No content available.",
+    "share": "Share",
+    "share_success": "Article shared successfully.",
+    "share_copied": "Article link copied.",
+    "share_failed": "Unable to share this article."
   },
   "UsesPage": {
     "title": "Uses & Setup",

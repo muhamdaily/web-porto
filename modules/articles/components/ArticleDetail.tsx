@@ -7,6 +7,7 @@ import EmptyState from "@/common/components/elements/EmptyState";
 import { ArticleItem } from "@/common/types/articles";
 import { formatDate } from "@/common/helpers";
 import dynamic from "next/dynamic";
+import ArticleShareButton from "./ArticleShareButton";
 
 const ViewRecorder = dynamic(() => import("./ViewRecorder"), { ssr: false });
 
@@ -47,7 +48,15 @@ const ArticleDetail = ({
                 </div>
 
                 {cover_image ? (
-                    <div className="overflow-hidden rounded-2xl">
+                    <div className="relative overflow-hidden rounded-2xl">
+                        <div className="absolute right-3 top-3 z-20">
+                            <ArticleShareButton
+                                title={title}
+                                slug={slug}
+                                compact
+                                className="bg-neutral-950/70 text-neutral-100 shadow-lg backdrop-blur-md hover:bg-neutral-950/85 dark:bg-neutral-950/70 dark:text-neutral-100"
+                            />
+                        </div>
                         <Image
                             src={cover_image}
                             alt={title}
@@ -70,7 +79,7 @@ const ArticleDetail = ({
                 <EmptyState message={t("no_content")} />
             )}
 
-            {/* Client-side view recorder (deduped by localStorage) */}
+            {/* Client-side view recorder with cookie/module guards */}
             {slug ? <ViewRecorder slug={slug} /> : null}
 
             {(categories?.length || tags?.length) && (

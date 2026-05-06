@@ -108,7 +108,11 @@
     "featured": "Unggulan",
     "anonymous": "Anonim",
     "protected": "Artikel ini diproteksi.",
-    "no_content": "Konten tidak tersedia."
+    "no_content": "Konten tidak tersedia.",
+    "share": "Bagikan",
+    "share_success": "Artikel berhasil dibagikan.",
+    "share_copied": "Tautan artikel disalin.",
+    "share_failed": "Tidak bisa membagikan artikel ini."
   },
   "UsesPage": {
     "title": "Perlengkapan & Setup",

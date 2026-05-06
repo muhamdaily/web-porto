@@ -14,6 +14,25 @@ export interface ChangelogEntry {
 
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     {
+        version: "v1.6.5",
+        date: "2026-05-06",
+        title: "Article Sharing",
+        items: [
+            {
+                type: "new",
+                text: "Added share actions on article detail pages.",
+            },
+            {
+                type: "new",
+                text: "Enabled native share when available and clipboard copy fallback for other browsers.",
+            },
+            {
+                type: "fixed",
+                text: "Kept the Featured badge visible on featured article cards even after cover images finish loading.",
+            },
+        ],
+    },
+    {
         version: "v1.6.4",
         date: "2026-05-06",
         title: "Articles Feature",
