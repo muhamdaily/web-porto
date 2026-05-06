@@ -27,6 +27,10 @@ export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
                 text: "Enabled native share when available and clipboard copy fallback for other browsers.",
             },
             {
+                type: "improved",
+                text: "Adjusted mobile typography for author, date, and views so metadata stays cleaner in one row on article cards and detail pages.",
+            },
+            {
                 type: "fixed",
                 text: "Kept the Featured badge visible on featured article cards even after cover images finish loading.",
             },

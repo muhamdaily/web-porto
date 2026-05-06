@@ -32,16 +32,18 @@ const ArticleDetail = ({
     return (
         <div className="space-y-8">
             <div className="space-y-4">
-                <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-500 dark:text-neutral-400">
-                    <span className="flex items-center gap-1">
+                <div className="flex flex-nowrap items-center gap-2 overflow-hidden text-[11px] text-neutral-500 dark:text-neutral-400 sm:flex-wrap sm:gap-4 sm:text-sm">
+                    <span className="flex shrink-0 items-center gap-1">
                         <HiOutlineUser size={16} />
-                        {author || t("anonymous")}
+                        <span className="max-w-[130px] truncate sm:max-w-none">
+                            {author || t("anonymous")}
+                        </span>
                     </span>
-                    <span className="flex items-center gap-1">
+                    <span className="flex shrink-0 items-center gap-1">
                         <HiOutlineCalendar size={16} />
                         {displayDate}
                     </span>
-                    <span className="flex items-center gap-1">
+                    <span className="flex shrink-0 items-center gap-1">
                         <HiOutlineEye size={16} />
                         {totalViews} {t("views")}
                     </span>

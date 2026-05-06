@@ -74,16 +74,18 @@ const ArticleCard = ({
                 >
                     {trimmedDescription}
                 </p>
-                <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-neutral-500 dark:text-neutral-400">
-                    <span className="flex items-center gap-1">
+                <div className="flex flex-nowrap items-center gap-2 overflow-hidden pt-2 text-[11px] text-neutral-500 dark:text-neutral-400 sm:flex-wrap sm:gap-4 sm:text-xs">
+                    <span className="flex shrink-0 items-center gap-1">
                         <HiOutlineUser size={14} />
-                        {author || t("anonymous")}
+                        <span className="max-w-[110px] truncate sm:max-w-none">
+                            {author || t("anonymous")}
+                        </span>
                     </span>
-                    <span className="flex items-center gap-1">
+                    <span className="flex shrink-0 items-center gap-1">
                         <HiOutlineCalendar size={14} />
                         {displayDate}
                     </span>
-                    <span className="flex items-center gap-1">
+                    <span className="flex shrink-0 items-center gap-1">
                         <HiOutlineEye size={14} />
                         {totalViews} {t("views")}
                     </span>
