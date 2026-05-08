@@ -82,7 +82,7 @@ const CategoryFilter = ({ categories, value, onChange }: CategoryFilterProps) =>
                 <motion.div
                     initial={{ scale: 0, y: -20 }}
                     animate={{ scale: 1, y: 0 }}
-                    className="absolute left-0 top-12 z-10 w-full"
+                    className="absolute left-0 top-12 z-50 w-full"
                 >
                     <div className="w-full overflow-hidden rounded-md bg-neutral-100 outline outline-neutral-300 dark:bg-neutral-900 dark:outline-neutral-600">
                         <div className="grid w-full grid-cols-[1.5rem_1fr] items-center border-b border-neutral-700 px-2 py-2">

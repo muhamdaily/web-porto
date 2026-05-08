@@ -30,6 +30,10 @@ export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
                 type: "fixed",
                 text: "Reworked article view counting to use articles.total_views instead of a separate article_views table.",
             },
+            {
+                type: "fixed",
+                text: "Fixed category filter dropdown appearing behind article images on mobile viewports by increasing z-index.",
+            },
         ],
     },
     {
