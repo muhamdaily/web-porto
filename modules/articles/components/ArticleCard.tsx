@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { HiOutlineEye, HiOutlineCalendar, HiOutlineUser } from "react-icons/hi";
 import { useTranslations } from "next-intl";
+import { FiClock as ClockIcon } from "react-icons/fi";
 
 import Image from "@/common/components/elements/Image";
 import SpotlightCard from "@/common/components/elements/SpotlightCard";
 import { ArticleItem } from "@/common/types/articles";
-import { formatDate } from "@/common/helpers";
+import { formatDate, estimateReadingTime } from "@/common/helpers";
 
 const ArticleCard = ({
     title,
@@ -24,6 +25,7 @@ const ArticleCard = ({
         : "";
     const displayDate = created_at ? formatDate(created_at, "dd MMM yyyy") : "";
     const totalViews = total_views ?? 0;
+    const readingTime = estimateReadingTime(description || title || "");
 
     return (
         <SpotlightCard className="group relative cursor-pointer">
@@ -74,16 +76,16 @@ const ArticleCard = ({
                 >
                     {trimmedDescription}
                 </p>
-                <div className="flex flex-nowrap items-center gap-2 overflow-hidden pt-2 text-[11px] text-neutral-500 dark:text-neutral-400 sm:flex-wrap sm:gap-4 sm:text-xs">
+                <div className="flex items-center gap-3 overflow-hidden pt-2 text-[11px] text-neutral-500 dark:text-neutral-400">
                     <span className="flex shrink-0 items-center gap-1">
                         <HiOutlineUser size={14} />
                         <span className="max-w-[110px] truncate sm:max-w-none">
                             {author || t("anonymous")}
                         </span>
                     </span>
-                    <span className="flex shrink-0 items-center gap-1">
-                        <HiOutlineCalendar size={14} />
-                        {displayDate}
+                    <span className="flex shrink-0 items-center gap-1 text-[11px] text-neutral-500 dark:text-neutral-400">
+                        <ClockIcon size={12} />
+                        {readingTime}
                     </span>
                     <span className="flex shrink-0 items-center gap-1">
                         <HiOutlineEye size={14} />

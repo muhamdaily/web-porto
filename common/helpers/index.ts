@@ -42,6 +42,15 @@ export const formatDate = (date: string, type = "MMMM dd, yyyy") => {
   return formattedDate;
 };
 
+export const estimateReadingTime = (text: string, wordsPerMinute = 200) => {
+  if (!text) return "1 min";
+
+  const words = String(text).trim().split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.ceil(words / wordsPerMinute));
+
+  return `${minutes} min`;
+};
+
 // export const parseQueryParams = (searchParams) => {
 //   const clonedParams = { ...searchParams };
 //   Object.keys(clonedParams).forEach((key) => {

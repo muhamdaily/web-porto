@@ -1,11 +1,12 @@
 import { useTranslations } from "next-intl";
 import { HiOutlineEye, HiOutlineCalendar, HiOutlineUser } from "react-icons/hi";
+import { FiClock as ClockIcon } from "react-icons/fi";
 
 import Image from "@/common/components/elements/Image";
 import MDXComponent from "@/common/components/elements/MDXComponent";
 import EmptyState from "@/common/components/elements/EmptyState";
 import { ArticleItem } from "@/common/types/articles";
-import { formatDate } from "@/common/helpers";
+import { formatDate, estimateReadingTime } from "@/common/helpers";
 import dynamic from "next/dynamic";
 import ArticleShareButton from "./ArticleShareButton";
 
@@ -26,23 +27,28 @@ const ArticleDetail = ({
     const displayDate = created_at ? formatDate(created_at, "dd MMM yyyy") : "";
     const totalViews = total_views ?? 0;
     const markdownContent = content || "";
+    const readingTime = estimateReadingTime(markdownContent);
 
     return (
         <div className="space-y-8">
             <div className="space-y-4">
-                <div className="flex flex-nowrap items-center gap-2 overflow-hidden text-[11px] text-neutral-500 dark:text-neutral-400 sm:flex-wrap sm:gap-4 sm:text-sm">
+                <div className="flex items-center gap-3 overflow-hidden text-[11px] md:text-[14px] text-neutral-500 dark:text-neutral-400">
                     <span className="flex shrink-0 items-center gap-1">
-                        <HiOutlineUser size={16} />
+                        <HiOutlineUser className="text-[12px] md:text-[16px]" />
                         <span className="max-w-[130px] truncate sm:max-w-none">
                             {author || t("anonymous")}
                         </span>
                     </span>
                     <span className="flex shrink-0 items-center gap-1">
-                        <HiOutlineCalendar size={16} />
+                        <HiOutlineCalendar className="text-[12px] md:text-[16px]" />
                         {displayDate}
                     </span>
+                    <span className="flex shrink-0 items-center gap-1 text-[11px] md:text-[14px] text-neutral-500 dark:text-neutral-400">
+                        <ClockIcon className="text-[12px] md:text-[16px]" />
+                        {readingTime}
+                    </span>
                     <span className="flex shrink-0 items-center gap-1">
-                        <HiOutlineEye size={16} />
+                        <HiOutlineEye className="text-[12px] md:text-[16px]" />
                         {totalViews} {t("views")}
                     </span>
                 </div>

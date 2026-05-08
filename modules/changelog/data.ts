@@ -14,6 +14,29 @@ export interface ChangelogEntry {
 
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     {
+        version: "v1.6.8",
+        date: "2026-05-08",
+        title: "Articles UI Adjustments",
+        items: [
+            {
+                type: "new",
+                text: "Added estimated reading time on article cards and detail pages (with clock icon).",
+            },
+            {
+                type: "improved",
+                text: "Removed date from article cards and adjusted metadata spacing so author, reading time, and views display clearly.",
+            },
+            {
+                type: "improved",
+                text: "Adjusted metadata font sizes responsively: smaller on mobile, normal on desktop for better readability.",
+            },
+            {
+                type: "fixed",
+                text: "Ensured category filter dropdown appears above article images on mobile by increasing z-index.",
+            },
+        ],
+    },
+    {
         version: "v1.6.7",
         date: "2026-05-07",
         title: "Articles MDX Migration",
@@ -29,10 +52,6 @@ export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
             {
                 type: "fixed",
                 text: "Reworked article view counting to use articles.total_views instead of a separate article_views table.",
-            },
-            {
-                type: "fixed",
-                text: "Fixed category filter dropdown appearing behind article images on mobile viewports by increasing z-index.",
             },
         ],
     },
