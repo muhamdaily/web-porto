@@ -45,6 +45,12 @@ const CodeBlock = ({
   const [value, copy] = useCopyToClipboard();
   const match = /language-(\w+)/.exec(className || "");
 
+  const contentStr = String(children ?? "");
+  // Fallback: sometimes inline code is passed as non-inline by parser.
+  // If there's no language class and the content is single-line and short,
+  // render it as inline to avoid accidental code-block rendering.
+  const shouldRenderAsInlineFallback = !inline && !match && !/\n/.test(contentStr) && contentStr.length < 120;
+
   const handleCopy = (code: string) => {
     copy(code);
     setIsCopied(true);
@@ -62,7 +68,7 @@ const CodeBlock = ({
 
   return (
     <>
-      {!inline ? (
+      {!inline && !shouldRenderAsInlineFallback ? (
         <div className="relative">
           <button
             className="absolute right-3 top-3 rounded-lg border border-neutral-700 p-2 hover:bg-neutral-800"
@@ -82,10 +88,13 @@ const CodeBlock = ({
             {...props}
             style={themeColor}
             customStyle={{
-              padding: "20px",
-              fontSize: "14px",
-              borderRadius: "8px",
-              paddingRight: "50px",
+              padding: "18px",
+              fontSize: "13px",
+              borderRadius: "10px",
+              paddingRight: "56px",
+              background: "#0b1220",
+              fontFamily:
+                "ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace",
             }}
             PreTag="div"
             language={match ? match[1] : "javascript"}

@@ -14,6 +14,21 @@ export interface ChangelogEntry {
 
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     {
+        version: "v1.6.9",
+        date: "2026-05-10",
+        title: "Code Block Rendering Fix",
+        items: [
+            {
+                type: "fixed",
+                text: "Fixed short inline code snippets from being rendered as code blocks when parsing MDX articles.",
+            },
+            {
+                type: "improved",
+                text: "Updated code block styling with a cleaner background, spacing, and monospace font for better readability.",
+            },
+        ],
+    },
+    {
         version: "v1.6.8",
         date: "2026-05-08",
         title: "Articles UI Adjustments",
