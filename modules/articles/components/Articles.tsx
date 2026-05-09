@@ -133,7 +133,7 @@ const Articles = () => {
     return (
         <section className="space-y-6">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                <div className="flex w-full items-center gap-2 rounded-lg bg-neutral-50 p-2 outline outline-neutral-300 focus-within:outline-neutral-400 dark:bg-neutral-900 dark:outline-neutral-700">
+                <div className="flex w-full items-center gap-2 rounded-lg bg-neutral-50 p-2 outline outline-neutral-300 focus-within:outline-neutral-400 dark:bg-neutral-900 dark:outline-neutral-700 md:flex-[1_1_0%] md:max-w-[calc(100%-18rem)]">
                     <SearchIcon className="text-neutral-500" size={17} />
                     <input
                         type="search"

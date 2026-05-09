@@ -14,6 +14,55 @@ export interface ChangelogEntry {
 
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     {
+        version: "v1.6.12",
+        date: "2026-05-10",
+        title: "Article Hero Performance Fix",
+        items: [
+            {
+                type: "improved",
+                text: "Cached article detail data so metadata and page rendering reuse the same fetch result on refresh.",
+            },
+            {
+                type: "improved",
+                text: "Switched the article hero thumbnail back to Next.js image optimization for better loading and caching.",
+            },
+            {
+                type: "fixed",
+                text: "Marked the article hero image as priority so it loads earlier above the fold.",
+            },
+        ],
+    },
+    {
+        version: "v1.6.11",
+        date: "2026-05-10",
+        title: "Article Hero Image Loading Fix",
+        items: [
+            {
+                type: "fixed",
+                text: "Made the article hero thumbnail load eagerly on the detail page so it appears faster after refresh.",
+            },
+            {
+                type: "improved",
+                text: "Added priority support to the shared image component for above-the-fold content.",
+            },
+        ],
+    },
+    {
+        version: "v1.6.10",
+        date: "2026-05-10",
+        title: "Articles Filter Layout Fix",
+        items: [
+            {
+                type: "fixed",
+                text: "Widened the category filter on desktop so longer labels stay on one line instead of wrapping.",
+            },
+            {
+                type: "improved",
+                text: "Adjusted the article search bar width to give the filter more horizontal room on larger screens.",
+            },
+        ],
+    },
+    {
         version: "v1.6.9",
         date: "2026-05-10",
         title: "Code Block Rendering Fix",

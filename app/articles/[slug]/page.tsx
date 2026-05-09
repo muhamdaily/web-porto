@@ -8,12 +8,13 @@ import ArticleDetail from "@/modules/articles/components/ArticleDetail";
 import { ArticleItem } from "@/common/types/articles";
 import { METADATA } from "@/common/constants/metadata";
 import { getArticleDataBySlug } from "@/services/articles";
+import { cache } from "react";
 
 interface ArticleDetailPageProps {
     params: { slug: string };
 }
 
-const getArticleDetail = async (slug: string): Promise<ArticleItem> => {
+const getArticleDetail = cache(async (slug: string): Promise<ArticleItem> => {
     const article = await getArticleDataBySlug(slug);
     const contents = loadMdxFiles("articles");
     const content = contents.find((item) => item.slug === slug);
@@ -24,7 +25,7 @@ const getArticleDetail = async (slug: string): Promise<ArticleItem> => {
             content: content?.content ?? null,
         }),
     );
-};
+});
 
 export const generateMetadata = async ({
     params,

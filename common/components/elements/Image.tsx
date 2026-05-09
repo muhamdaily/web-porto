@@ -9,40 +9,8 @@ interface ImageProps extends NextImageProps {
 }
 
 const Image = (props: ImageProps) => {
-  const { alt, src, className, rounded, ...rest } = props;
+  const { alt, src, className, rounded, priority = false, loading, ...rest } = props;
   const [isLoading, setLoading] = useState(true);
-
-  const isExternal = typeof src === "string" && /^https?:\/\//.test(src);
-
-  // For external images we render a plain <img> so the browser loads it
-  // directly (avoids Next.js image proxy issues with some hosts).
-  if (isExternal) {
-    return (
-      <div
-        className={clsx(
-          "overflow-hidden",
-          isLoading ? "animate-pulse" : "",
-          rounded,
-        )}
-      >
-        <img
-          src={src as string}
-          alt={alt}
-          className={clsx(
-            "duration-700 ease-in-out",
-            isLoading
-              ? "scale-[1.02] blur-xl grayscale"
-              : "scale-100 blur-0 grayscale-0",
-            rounded,
-            className,
-          )}
-          loading="lazy"
-          onLoad={() => setLoading(false)}
-          {...(rest as any)}
-        />
-      </div>
-    );
-  }
 
   return (
     <div
@@ -63,7 +31,9 @@ const Image = (props: ImageProps) => {
         )}
         src={src}
         alt={alt}
-        loading="lazy"
+        priority={priority}
+        loading={priority ? "eager" : loading || "lazy"}
+        sizes={typeof rest.width === "number" ? "100vw" : undefined}
         quality={100}
         onLoad={() => setLoading(false)}
         {...rest}

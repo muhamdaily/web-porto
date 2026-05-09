@@ -68,6 +68,7 @@ const ArticleDetail = ({
                             alt={title}
                             width={1200}
                             height={520}
+                            priority
                             className="transition duration-500 hover:scale-[1.02]"
                         />
                     </div>

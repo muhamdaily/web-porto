@@ -66,13 +66,13 @@ const CategoryFilter = ({ categories, value, onChange }: CategoryFilterProps) =>
         data.find((item) => item.value === value)?.label || t("filter_placeholder");
 
     return (
-        <div ref={comboBoxRef} className="relative w-full md:w-[240px]">
+        <div ref={comboBoxRef} className="relative w-full md:w-[288px] lg:w-[304px]">
             <Button
                 className="flex w-full items-center justify-between gap-4 bg-neutral-100 p-2 text-neutral-900 outline outline-neutral-300 hover:bg-neutral-300 dark:bg-neutral-900 dark:text-neutral-400 dark:outline-neutral-700 dark:hover:bg-neutral-800"
                 onClick={handleClickOpen}
                 data-umami-event="click_filter_articles"
             >
-                <span className="text-sm">{selectedLabel}</span>
+                <span className="whitespace-nowrap text-sm">{selectedLabel}</span>
                 <ArrowIcon
                     className={cn("transition duration-200", isOpen && "scale-125")}
                 />
