@@ -14,6 +14,25 @@ export interface ChangelogEntry {
 
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     {
+        version: "v1.6.13",
+        date: "2026-05-10",
+        title: "Shiki Syntax Highlighting Integration",
+        items: [
+            {
+                type: "improved",
+                text: "Replaced React Syntax Highlighter with Shiki for better syntax highlighting performance and theme support.",
+            },
+            {
+                type: "improved",
+                text: "Code blocks now use Shiki's poimandres theme with inline styles for faster rendering.",
+            },
+            {
+                type: "fixed",
+                text: "Made article detail metadata responsive: smaller font on mobile (10px), medium on tablet (12px), larger on desktop (14px).",
+            },
+        ],
+    },
+    {
         version: "v1.6.12",
         date: "2026-05-10",
         title: "Article Hero Performance Fix",
@@ -29,6 +48,10 @@ export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
             {
                 type: "fixed",
                 text: "Marked the article hero image as priority so it loads earlier above the fold.",
+            },
+            {
+                type: "improved",
+                text: "Made article detail metadata responsive: smaller font on mobile (9px), medium on tablet (11px), larger on desktop (14px) so labels stay on one line.",
             },
         ],
     },

@@ -32,23 +32,23 @@ const ArticleDetail = ({
     return (
         <div className="space-y-8">
             <div className="space-y-4">
-                <div className="flex items-center gap-3 overflow-hidden text-[11px] md:text-[14px] text-neutral-500 dark:text-neutral-400">
+                <div className="flex items-center gap-2 sm:gap-3 overflow-hidden whitespace-nowrap text-[10px] sm:text-[12px] md:text-[14px] text-neutral-500 dark:text-neutral-400">
                     <span className="flex shrink-0 items-center gap-1">
-                        <HiOutlineUser className="text-[12px] md:text-[16px]" />
-                        <span className="max-w-[130px] truncate sm:max-w-none">
+                        <HiOutlineUser className="text-[10px] sm:text-[12px] md:text-[16px]" />
+                        <span className="max-w-[80px] truncate sm:max-w-[110px] md:max-w-none text-[10px] sm:text-[12px] md:text-[14px]">
                             {author || t("anonymous")}
                         </span>
                     </span>
                     <span className="flex shrink-0 items-center gap-1">
-                        <HiOutlineCalendar className="text-[12px] md:text-[16px]" />
+                        <HiOutlineCalendar className="text-[10px] sm:text-[12px] md:text-[16px]" />
                         {displayDate}
                     </span>
-                    <span className="flex shrink-0 items-center gap-1 text-[11px] md:text-[14px] text-neutral-500 dark:text-neutral-400">
-                        <ClockIcon className="text-[12px] md:text-[16px]" />
+                    <span className="flex shrink-0 items-center gap-1">
+                        <ClockIcon className="text-[10px] sm:text-[12px] md:text-[16px]" />
                         {readingTime}
                     </span>
                     <span className="flex shrink-0 items-center gap-1">
-                        <HiOutlineEye className="text-[12px] md:text-[16px]" />
+                        <HiOutlineEye className="text-[10px] sm:text-[12px] md:text-[16px]" />
                         {totalViews} {t("views")}
                     </span>
                 </div>

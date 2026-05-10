@@ -1,14 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
-import diff from "react-syntax-highlighter/dist/cjs/languages/prism/diff";
-import javascript from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
-import tsx from "react-syntax-highlighter/dist/cjs/languages/prism/tsx";
-import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
-import { useEffect, useState } from "react";
-import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { a11yDark as themeColor } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { useEffect, useState, useMemo } from "react";
+import { codeToHtml } from "shiki";
 import { useCopyToClipboard } from "usehooks-ts";
 import {
   HiCheckCircle as CheckIcon,
@@ -21,20 +15,6 @@ type CodeProps = {
   children?: React.ReactNode;
 };
 
-const languages = {
-  javascript: "javascript",
-  typescript: "typescript",
-  diff: "diff",
-  tsx: "tsx",
-  css: "css",
-};
-
-SyntaxHighlighter.registerLanguage(languages.javascript, javascript);
-SyntaxHighlighter.registerLanguage(languages.typescript, typescript);
-SyntaxHighlighter.registerLanguage(languages.diff, diff);
-SyntaxHighlighter.registerLanguage(languages.tsx, tsx);
-SyntaxHighlighter.registerLanguage(languages.css, css);
-
 const CodeBlock = ({
   className = "",
   children,
@@ -42,14 +22,40 @@ const CodeBlock = ({
   ...props
 }: CodeProps) => {
   const [isCopied, setIsCopied] = useState<boolean>(false);
+  const [highlightedCode, setHighlightedCode] = useState<string>("");
   const [value, copy] = useCopyToClipboard();
   const match = /language-(\w+)/.exec(className || "");
 
-  const contentStr = String(children ?? "");
-  // Fallback: sometimes inline code is passed as non-inline by parser.
-  // If there's no language class and the content is single-line and short,
-  // render it as inline to avoid accidental code-block rendering.
-  const shouldRenderAsInlineFallback = !inline && !match && !/\n/.test(contentStr) && contentStr.length < 120;
+  const contentStr = String(children ?? "").replace(/\n$/, "");
+  const shouldRenderAsInlineFallback =
+    !inline && !match && !/\n/.test(contentStr) && contentStr.length < 120;
+
+  const language = useMemo(() => {
+    if (match) return match[1];
+    return "javascript";
+  }, [match]);
+
+  useEffect(() => {
+    if (!inline && !shouldRenderAsInlineFallback) {
+      const highlightCode = async () => {
+        try {
+          const html = await codeToHtml(contentStr, {
+            lang: language as any,
+            theme: "poimandres",
+          });
+          setHighlightedCode(html);
+        } catch (error) {
+          console.error("Syntax highlighting error:", error);
+          // Fallback: render plain code
+          setHighlightedCode(
+            `<pre style="background: #222222; padding: 18px; border-radius: 10px; overflow-x: auto;"><code>${contentStr}</code></pre>`
+          );
+        }
+      };
+
+      highlightCode();
+    }
+  }, [contentStr, language, inline, shouldRenderAsInlineFallback]);
 
   const handleCopy = (code: string) => {
     copy(code);
@@ -71,10 +77,10 @@ const CodeBlock = ({
       {!inline && !shouldRenderAsInlineFallback ? (
         <div className="relative">
           <button
-            className="absolute right-3 top-3 rounded-lg border border-neutral-700 p-2 hover:bg-neutral-800"
+            className="absolute right-3 top-3 rounded-lg border border-neutral-700 p-2 hover:bg-neutral-800 z-10"
             type="button"
             aria-label="Copy to Clipboard"
-            onClick={() => handleCopy(String(children ?? ""))}
+            onClick={() => handleCopy(contentStr)}
             data-umami-event="Click Copy Code"
           >
             {!isCopied ? (
@@ -84,24 +90,10 @@ const CodeBlock = ({
             )}
           </button>
 
-          <SyntaxHighlighter
-            {...props}
-            style={themeColor}
-            customStyle={{
-              padding: "18px",
-              fontSize: "13px",
-              borderRadius: "10px",
-              paddingRight: "56px",
-              background: "#0b1220",
-              fontFamily:
-                "ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace",
-            }}
-            PreTag="div"
-            language={match ? match[1] : "javascript"}
-            wrapLongLines={true}
-          >
-            {String(children).replace(/\n$/, "")}
-          </SyntaxHighlighter>
+          <div
+            className="shiki-code-block [&_pre]:!bg-[#222222] [&_pre]:rounded-[10px] [&_pre]:font-mono [&_pre]:text-[13px] [&_pre]:p-[18px] [&_pre]:pr-14 [&_code]:!bg-transparent [&_code]:!p-0"
+            dangerouslySetInnerHTML={{ __html: highlightedCode || "" }}
+          />
         </div>
       ) : (
         <code className="rounded-md bg-neutral-200 px-2 py-1 text-[14px] font-light text-sky-600 dark:bg-neutral-700 dark:text-sky-300">

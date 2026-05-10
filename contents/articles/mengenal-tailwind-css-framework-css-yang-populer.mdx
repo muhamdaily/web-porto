@@ -47,17 +47,14 @@ Mari kita lihat perbedaan nyata antara pendekatan tradisional dan Tailwind CSS d
 ### Pendekatan Tradisional (CSS-in-CSS)
 
 **HTML:**
-
 ```html
 <div class="profile-card">
   <img src="avatar.jpg" class="profile-img">
   <h2 class="profile-name">John Doe</h2>
 </div>
-
 ```
 
 **CSS:**
-
 ```css
 .profile-card {
   padding: 1.5rem;
@@ -70,19 +67,16 @@ Mari kita lihat perbedaan nyata antara pendekatan tradisional dan Tailwind CSS d
   font-weight: 700;
   color: #1a202c;
 }
-
 ```
 
 ### Pendekatan Tailwind CSS
 
 Hanya dengan satu file HTML, semua gaya langsung terintegrasi:
-
 ```html
 <div class="p-6 bg-white rounded-lg shadow-md">
   <img src="avatar.jpg" class="w-16 h-16 rounded-full">
   <h2 class="text-xl font-bold text-gray-900">John Doe</h2>
 </div>
-
 ```
 
 ---
@@ -117,24 +111,22 @@ Untuk mendapatkan performa maksimal, sangat disarankan menginstal Tailwind melal
 ```bash
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
-
 ```
 
 
 2. **Konfigurasi File Template:**
 Edit `tailwind.config.js` untuk menentukan jalur file Anda:
-
 ```javascript
-    content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
-    ```
+content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
+```
+
 3.  **Tambahkan Direktif ke CSS:**
     Masukkan kode ini ke file CSS utama Anda:
-    
 ```css
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-    ```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
 ---
 
@@ -149,7 +141,6 @@ const PrimaryButton = ({ children }) => (
     {children}
   </button>
 );
-
 ```
 
 Dengan begini, logika styling tetap tersembunyi di dalam komponen, namun Anda tetap mendapatkan kekuatan penuh dari Tailwind.
