@@ -37,6 +37,25 @@ button,
   @apply rounded-[3px] border-2 border-neutral-300 bg-neutral-600 dark:bg-neutral-400;
 }
 
+/* Scrollbar styling untuk code blocks */
+.shiki-code-block::-webkit-scrollbar {
+  height: 3px;
+}
+
+.shiki-code-block::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.shiki-code-block::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-neutral-500 dark:bg-neutral-600;
+  height: 1px;
+  width: 1px;
+}
+
+.shiki-code-block::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral-400 dark:bg-neutral-500;
+}
+
 @layer components {
   .hexagon {
     clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);

@@ -28,7 +28,7 @@ export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
             },
             {
                 type: "fixed",
-                text: "Made article detail metadata responsive: smaller font on mobile (10px), medium on tablet (12px), larger on desktop (14px).",
+                text: "Fixed code block overflow on mobile: added horizontal scroll, full-width constraint, responsive padding, and thin scrollbar styling.",
             },
         ],
     },

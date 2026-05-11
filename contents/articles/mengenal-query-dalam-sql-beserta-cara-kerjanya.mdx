@@ -1,0 +1,99 @@
+Pernahkah kamu membayangkan bagaimana sebuah aplikasi media sosial bisa menampilkan ribuan postingan dalam hitungan detik? Di balik layar, ada komunikasi efisien antara aplikasi dan database melalui **Query**.
+
+Bagi seorang *developer* atau *data engineer*, memahami Query SQL bukan hanya soal menghafal sintaksis, tetapi tentang memahami bagaimana instruksi tersebut diproses hingga menghasilkan data yang akurat.
+
+---
+
+## 1. Apa Itu Query dalam SQL?
+
+**Query** (Kueri) adalah sekumpulan instruksi khusus yang digunakan untuk mengekstraksi, memanipulasi, atau mengorganisir data dalam sebuah database. SQL (*Structured Query Language*) adalah bahasa standar yang digunakan untuk menulis query ini pada sistem **RDBMS** seperti PostgreSQL, MySQL, dan SQL Server.
+
+Secara fungsional, query dibagi menjadi empat pilar utama:
+
+1. **DDL (Data Definition Language):** Membangun struktur (tabel/database).
+2. **DML (Data Manipulation Language):** Berinteraksi dengan isi data (paling sering digunakan).
+3. **DCL (Data Control Language):** Mengatur hak akses keamanan.
+4. **TCL (Transaction Control Language):** Mengelola alur transaksi data.
+
+---
+
+## 2. Contoh Implementasi Query DML
+
+Dalam pengembangan aplikasi sehari-hari, tipe **DML** adalah yang paling sering kita jumpai. Berikut adalah beberapa contoh dasar yang wajib dikuasai:
+
+### A. Mengambil Data (SELECT)
+
+Digunakan untuk membaca data dari tabel.
+
+```sql
+-- Mengambil data seluruh users
+SELECT * FROM users;
+
+-- Menghitung jumlah data users
+SELECT COUNT(*) FROM users;
+
+```
+
+### B. Menambah Data (INSERT)
+
+Digunakan untuk memasukkan baris baru ke dalam tabel.
+
+```sql
+-- Menambah data user baru
+INSERT INTO users (name, email) 
+VALUES ('Muhammad Mauribi', 'mail@muhamdaily.dev');
+
+```
+
+### C. Mengubah Data (UPDATE)
+
+Digunakan untuk memperbarui data yang sudah ada. **Penting:** Selalu gunakan klausa `WHERE` agar tidak mengubah seluruh isi tabel.
+
+```sql
+-- Mengubah email user yang memiliki id 1
+UPDATE users 
+SET email = 'new_email@muhamdaily.dev' 
+WHERE id = 1;
+
+```
+
+### D. Menghapus Data (DELETE)
+
+Digunakan untuk menghapus data tertentu.
+
+```sql
+-- Menghapus user yang memiliki id 1
+DELETE FROM users 
+WHERE id = 1;
+
+```
+
+---
+
+## 3. Anatomi Cara Kerja Query
+
+Saat kamu mengeksekusi query di atas, database melakukan tiga tahap pemrosesan kilat:
+
+1. **Parser:** Menguji apakah penulisan sintaks sudah benar, mengecek apakah tabel/kolom tersedia, dan memvalidasi izin akses pengguna.
+2. **Relational Engine:** Membuat *Execution Plan* atau rencana tercepat untuk mengambil data. Di sini database menentukan apakah akan menggunakan **Index** atau melakukan pemindaian penuh.
+3. **Storage Engine:** Tahap akhir di mana sistem mengambil data fisik dari perangkat penyimpanan (SSD/HDD) dan mengirimkannya kembali ke pengguna.
+
+---
+
+## 4. Urutan Eksekusi Logis (Logical Order)
+
+Menariknya, database tidak membaca query dari baris pertama. Berikut adalah urutan eksekusi yang sebenarnya terjadi di balik layar:
+
+1. **FROM & JOIN:** Menentukan sumber data.
+2. **WHERE:** Memfilter baris data mentah.
+3. **GROUP BY:** Mengelompokkan data (misal: per kategori).
+4. **HAVING:** Memfilter data hasil pengelompokan.
+5. **SELECT:** Memilih kolom yang akan ditampilkan.
+6. **ORDER BY:** Mengurutkan hasil akhir.
+7. **LIMIT / OFFSET:** Membatasi jumlah baris yang dikirim.
+
+---
+
+## Kesimpulan
+
+Memahami Query SQL adalah langkah awal menjadi pengembang yang handal. Dengan mengetahui cara kerja internalnya, kamu bisa menulis query yang tidak hanya berjalan, tapi juga **efisien dan cepat**. Teruslah bereksplorasi dengan teknik *indexing* dan optimasi untuk menangani skala data yang lebih besar!

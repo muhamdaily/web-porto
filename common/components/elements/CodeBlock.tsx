@@ -91,8 +91,12 @@ const CodeBlock = ({
           </button>
 
           <div
-            className="shiki-code-block [&_pre]:!bg-[#222222] [&_pre]:rounded-[10px] [&_pre]:font-mono [&_pre]:text-[13px] [&_pre]:p-[18px] [&_pre]:pr-14 [&_code]:!bg-transparent [&_code]:!p-0"
+            className="shiki-code-block w-full max-w-full overflow-x-auto [&_pre]:!bg-[#0b1220] [&_pre]:rounded-[10px] [&_pre]:font-mono [&_pre]:text-[13px] [&_pre]:p-3 sm:[&_pre]:p-[18px] [&_pre]:pr-14 [&_code]:!bg-transparent [&_code]:!p-0 [&_code]:overflow-x-auto scrollbar-thin scrollbar-thumb-neutral-600 scrollbar-track-transparent hover:scrollbar-thumb-neutral-500"
             dangerouslySetInnerHTML={{ __html: highlightedCode || "" }}
+            style={{
+              scrollbarWidth: "thin",
+              scrollbarColor: "#525252 transparent",
+            }}
           />
         </div>
       ) : (
