@@ -38,6 +38,24 @@ button,
 }
 
 /* Scrollbar styling untuk code blocks */
+.shiki-code-block {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.shiki-code-block pre {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 12px !important;
+  overflow: visible !important;
+}
+
+.shiki-code-block code {
+  display: block;
+  overflow-x: auto;
+}
+
 .shiki-code-block::-webkit-scrollbar {
   height: 3px;
 }

@@ -15,7 +15,7 @@ export interface ChangelogEntry {
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     {
         version: "v1.6.13",
-        date: "2026-05-10",
+        date: "2026-05-11",
         title: "Shiki Syntax Highlighting Integration",
         items: [
             {
@@ -24,11 +24,11 @@ export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
             },
             {
                 type: "improved",
-                text: "Code blocks now use Shiki's poimandres theme with inline styles for faster rendering.",
+                text: "Code blocks now use Shiki's github-dark theme with inline styles for faster rendering.",
             },
             {
                 type: "fixed",
-                text: "Fixed code block overflow on mobile: added horizontal scroll, full-width constraint, responsive padding, and thin scrollbar styling.",
+                text: "Fixed code block overflow on mobile: added strict width constraints, horizontal scroll, thin scrollbar (1px), and responsive padding.",
             },
         ],
     },
